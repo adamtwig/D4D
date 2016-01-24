@@ -22,7 +22,8 @@ np.set_printoptions(threshold='nan')
 
 def main():
 
-	raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
+	#raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
+	raw_dir = '/opt2/D4D/senegal/data/'
 	sample_dir = '/opt2/D4D/senegal/code/sample_data/'
 	out_dir = '../output/'
 
@@ -33,6 +34,12 @@ def main():
 		sys.exit(2)
 	else:
 		filename = sys.argv[1]
+	
+		if ('SET2' in sys.argv[1]):
+			raw_dir = raw_dir + 'SET2/raw/'
+		else:
+			raw_dir = raw_dir + 'SET3/raw/'
+
 		if ('sample' in sys.argv[1]):
 			input_file = sample_dir + filename
 			out_dir = out_dir + 'sample_out_data/'

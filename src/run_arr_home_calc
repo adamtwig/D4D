@@ -1,0 +1,24 @@
+#!/bin/bash
+./home_calc_AT.py SET3_M02.CSV 
+./home_calc_AT.py SET3_M03.CSV 
+./home_calc_AT.py SET3_M04.CSV 
+./home_calc_AT.py SET3_M05.CSV 
+./home_calc_AT.py SET3_M06.CSV 
+./home_calc_AT.py SET3_M07.CSV 
+./home_calc_AT.py SET3_M08.CSV 
+./home_calc_AT.py SET3_M09.CSV 
+./home_calc_AT.py SET3_M10.CSV 
+./home_calc_AT.py SET3_M11.CSV 
+./home_calc_AT.py SET3_M12.CSV 
+./home_calc_AT.py SET3_M13.CSV 
+./home_calc_AT.py SET3_M14.CSV 
+./home_calc_AT.py SET3_M15.CSV 
+./home_calc_AT.py SET3_M16.CSV 
+./home_calc_AT.py SET3_M17.CSV 
+./home_calc_AT.py SET3_M18.CSV 
+./home_calc_AT.py SET3_M19.CSV 
+./home_calc_AT.py SET3_M20.CSV 
+./home_calc_AT.py SET3_M21.CSV 
+./home_calc_AT.py SET3_M22.CSV 
+./home_calc_AT.py SET3_M23.CSV 
+./home_calc_AT.py SET3_M24.CSV 
