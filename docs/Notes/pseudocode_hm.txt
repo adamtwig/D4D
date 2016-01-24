@@ -1,0 +1,48 @@
+# Home Matrix
+
+# Dataset 2
+
+user_id, timestamp, site_id
+-------- ---------- -------
+1, 2013-03-18 21:30:00, 716
+1, 2013-03-18 21:40:00, 718
+1, 2013-03-19 20:40:00, 716
+...
+
+# Matrices
+
+Matrix 1
+Popular Location
+Number of calls at antenna by person
+
+	antenna1	antenna2	antenna3	...
+id0
+id1
+id2
+...
+
+	site_id
+user_id
+
+
+
+
+Matrix 2
+Nightime
+Number of calls between 7pm-7am
+
+
+
+Matrix 3
+Daytime
+Number of calls between 7am-7pm
+
+
+
+Matrix 4
+Weekends
+Number of calls on Saturdays and Sundays
+
+
+
+

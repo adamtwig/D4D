@@ -1,0 +1,35 @@
+10_20_2015 Meeting Minutes
+
+Sort antenna frequency.
+
+Run processes in background.
+Run matlib in background too to generate images. Okay to not do interactive.
+
+Definitions of homes
+Michael -> filtering for different definitions of homes data sets
+
+ArchGIS
+Bishal -> Tell us what format he needs to have antennas in a column
+Because we already have coordinates for each antennaid
+Link antennaid like primary keys across data csv
+
+Python script to load data and export the visualization
+1. Load a dataset
+2. Turn layer on
+3. Export png
+
+This way we could create animation of all the PNG files.
+
+Actually, can also do animation in ArchGIS.
+See which approach is better.
+
+
+Time element. To do an entire year, need to go to arrondisement level, but this doesn't change so much.
+Is there a monthly / seasonal cycle we can look for at arr. level. 
+% change over time for an entire year.
+
+We can get 2 week period movements. And we can look at some specific, day event to see if correlates with data.
+
+Get different definitions of home working for both antenna and arrondissement.
+Then can move to arrondisement.
+
