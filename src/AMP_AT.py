@@ -21,19 +21,20 @@ from home_calc_functions_AT import *
 
 def main():
     
-    raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
-    sample_dir = '/opt2/D4D/senegal/code/D4D_working/sample_data/'
+	raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
+	sample_dir = '/opt2/D4D/senegal/code/sample_data/'
 
-    if ( len(sys.argv) != 2 ):
-        print 'program parameters incorrect'
-        print 'usage: ./prog.py filename '
-        sys.exit(2)    
-    else:
-        filename = sys.argv[1]
-        if ('sample' in sys.argv[1]):
-            input_file = sample_dir + filename
-        else:    
-            input_file = raw_dir + filename
+	if ( len(sys.argv) != 2 ):
+		print 'program parameters incorrect'
+		print 'usage: ./prog.py filename '
+		print 'example dataset: sample_SET2_P01.csv' 
+		sys.exit(2)    
+	else:
+		filename = sys.argv[1]
+		if ('sample' in sys.argv[1]):
+			input_file = sample_dir + filename
+		else:    
+			input_file = raw_dir + filename
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
@@ -73,9 +74,14 @@ def main():
 	for i in range(1, 104):
 		for j in range(104):
 			if len(patterns[j]) > i:
-				print 1, i, patterns[j][-i]			
-				patternDict[i*104+j] = patterns[j][-i]
-
+				#print 1, i, patterns[j][-i]			
+				#patternDict[i*104+j] = patterns[j][-i]
+				if not str(patterns[j][-i]) in patternDict:
+					patternDict[str(patterns[j][-i])] = 1
+				else:
+					patternDict[str(patterns[j][-i])] += 1
+	
+	print patternDict
 	#print patternDict
 	#wordstring = str(patterns[-1])
 
