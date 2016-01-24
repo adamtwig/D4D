@@ -1,11 +1,3 @@
-# Data 4 Development
-## http://www.d4d.orange.com/
-
-### Dr. Wolffe, Dr. Leidig
-#### Adam Terwilliger, Michael Baldwin, Bishal Chamling, Morgan Oneka
-
-##### Work
-
 ##### References
 # Python
 - [Run python from interpreter](http://stackoverflow.com/questions/15587877/run-a-python-script-in-terminal-without-the-python-command)
