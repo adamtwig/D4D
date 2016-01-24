@@ -18,33 +18,55 @@
 1666 antennas
 ~300,000 users
 
+- [Link to D4D](http://www.d4d.orange.com/)
 
 ##### Guide to the repository
-data -- timestamp removed datasets  
+data   
+	 -- timestamp removed datasets  
 	 -- antenna/arrondisemont locations  
 
-docs -- helpful links  
+docs   
+	 -- helpful links  
 	 -- notes from research meetings  
 
-output -- full_movement.txt -- show aggregate 2-mer number of movements   
-	   -- out_data -- contains number of users for each antenna for all five definitions of home location for all weeks for antennas  
-	   -- user1_out.txt -- contains enumeration of all of user 1 specific patterns for first two weeks  
+output    
+	   -- full_movement.txt - show aggregate 2-mer number of movements   
+	   -- out_data - contains number of users for each antenna for all five definitions of home location for all weeks for antennas  
+	   -- user1_out.txt - contains enumeration of all of user 1 specific patterns for first two weeks  
   
 
-src -- AMP_AT.py -- current working code to enumerate specific users patterns of movement  
-	-- anon_data_AT.py -- generates an "anonymized" dataset with timesteps removed   
-	-- ant_pairs_AT.py -- aggregates movements between antennas for all users   
-	-- BC_working -- directory dedicated to Bishal's migration code   
-	-- dist_between_antennas.py -- self evident   
-	-- home_calc_AT.py -- generates five definitions of home location output for antennas   
-	-- home_calc_functions_AT.py -- helper functions to generate home locations    
+src    
+	-- AMP_AT.py - current working code to enumerate specific users patterns of movement  
+	-- anon_data_AT.py - generates an "anonymized" dataset with timesteps removed   
+	-- ant_pairs_AT.py - aggregates movements between antennas for all users   
+	-- BC_working - directory dedicated to Bishal's migration code   
+	-- dist_between_antennas.py - self evident   
+	-- home_calc_AT.py - generates five definitions of home location output for antennas   
+	-- home_calc_functions_AT.py - helper functions to generate home locations    
+
+##### Previous Work
+* Five definitions of home: overall, daytime, nighttime, weekday, weekend
+* Home Locations by antenna (SET2) all 24 datasets for all five home defs
+* Home Locations by arrondisemont (SET3) first 4-5 datasets all five home defs
+* Aggregate movement between antennas (2-mers) for first dataset
+* Visualizations of graphs showing overall movement between antennas
+* Distances between each antenna
+* Enumeration of specific patterns of movement by antenna for first five users
+* Enumerations aggregated by antenna for individual users
 
 ##### Current Work
-* Aggregate specific users patterns of movements
-* Enumerate first 10 users' specific patterns of movements
-* Generate summary statistics on first 10 users' patterns
-* Home location by arrondisemont by all home location definitions
+* Generate summary statistics on first 5 users' patterns
+* Bash script is currently running to get all datasets in SET3 for all five home location definitions
 * Enumerate a single user's abstract pattern of movements
+* Bishal -- Overall migration by taking the difference between home location result datasets (i.e. week2 - week 1 for number of users whose home is at each ant/arr)
+* Morgan -- Discrete mathematics proof -- Given k nodes, how many unique/abstract patterns can be found in a path/traversal of length k?
+* Morgan -- Generate voronoi diagram by antenna locations 
+
+##### Implementation Issues
+* Dynamic programming approach to enumeration
+* Best data structure to hold enumerations by user
+* How to store/save users' specific patterns
+* Rank/unrank algorithm to translate specific to abstract patterns
 
 ##### Future Work
 * Enumerate all users' specific patterns of movements
@@ -57,4 +79,3 @@ src -- AMP_AT.py -- current working code to enumerate specific users patterns of
 * Using movement patterns, develop a model that can generate a set of random users (synthetic dataset)
 * Using movement patterns, develop a model that can differentiate (i.e classify) a user's country (Senegal vs. Ivory Coast)
 
-- [Link to D4D](http://www.d4d.orange.com/)
