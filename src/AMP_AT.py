@@ -38,17 +38,7 @@ def main():
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
-	#uniqueIDs = set(data_array_2d[0:104,2])
-
-	#patterns = np.chararray(104,104)
-	#patterns = np.chararray((11,11))
-	#patterns = np.array(dtype=object)
 	patterns = list()
-	#patterns = list(patterns)
-	#print patterns
-
-	#for i in range(2,104):
-	#	for j in range(2, 104):
 	for i in range(104):
 		subPatterns = list()
 		for j in range(i+1):
@@ -58,16 +48,6 @@ def main():
 			#patterns.append(list(data_array_2d[j:(i+1), 2]))	
 			subPatterns.append(list(data_array_2d[j:(i+1), 2]))
 		patterns.append(subPatterns)
-    #for i in range(len(data_array_2d)):
-	#for i in range(104):
-	#	print i, data_array_2d[i,0], data_array_2d[i,2]
-
-	#for i in range(len(patterns)):		
-	#	for j in range(len(patterns)):
-	#		print patterns[i,j]
-	#print patterns
-
-	#print set(patterns)
 	
 	patternDict = {}
 
@@ -81,40 +61,15 @@ def main():
 				else:
 					patternDict[str(patterns[j][-i])] += 1
 	
-	print patternDict
 	#print patternDict
-	#wordstring = str(patterns[-1])
 
-	#wordlist = wordstring.split()
+	import operator
 
-	#wordlist = patterns
+	sorted_patternDict = sorted(patternDict.items(), 
+							key=operator.itemgetter(1), reverse=True)
 
-	#wordfreq = []
-	#for w in wordlist:
-	#	wordfreq.append(wordlist.count(w))
+	print sorted_patternDict
 
-	#print "String\n" + wordstring +"\n"
-	#print "List\n" + str(wordlist) + "\n"
-	#print "Frequencies\n" + str(wordfreq) + "\n"
-	#print "Pairs\n" + str(zip(wordlist, wordfreq))
-
-	
-
-	#print patterns[:][-1]
-
-	#tPatterns = list(map(list, zip(*patterns)))
-
-	#print tPatterns
-
-'''
-
-    out_dir = '../anon_data/'
-    prefix = out_dir+"anon_"
-    outfile = open(prefix+filename, 'w')
-    for i in range(len(data_array_2d)):
-        # add 1 since frequency matrices run from 0 to n-1
-        outfile.write(str(data_array_2d[i,0]) + ',' + str(data_array_2d[i,2]) + "\n")
-'''
 
 if __name__ == "__main__":
     main()
