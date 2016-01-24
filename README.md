@@ -20,14 +20,29 @@
 
 
 ##### Guide to the repository
-data -- timestamp removed datasets
-	 -- antenna/arrondisemont locations
-docs -- helpful links
-	 -- notes from research meetings
-output -- tbd
-src -- tbd
+data -- timestamp removed datasets 
+	 -- antenna/arrondisemont locations 
+docs -- helpful links 
+	 -- notes from research meetings  
+output -- tbd  
+src -- tbd  
 
+##### Current Work
+* Aggregate specific users patterns of movements
+* Enumerate first 10 users' specific patterns of movements
+* Generate summary statistics on first 10 users' patterns
+* Home location by arrondisemont by all home location definitions
+* Enumerate a single user's abstract pattern of movements
 
+##### Future Work
+* Enumerate all users' specific patterns of movements
+* Enumerate all users' abstract patterns of movements
+* Home location user list for all weeks
+* Generate a geographical and interactive data visualization using D3.js to understand aggregate user movement
 
+##### Potential Directions
+* Clustering users based on movement patterns and investigate their home location to infer any sociological and cultural phenomena
+* Using movement patterns, develop a model that can generate a set of random users (synthetic dataset)
+* Using movement patterns, develop a model that can differentiate (i.e classify) a user's country (Senegal vs. Ivory Coast)
 
 - [Link to D4D](http://www.d4d.orange.com/)
