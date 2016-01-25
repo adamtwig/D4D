@@ -47,7 +47,7 @@ src
 ##### Previous Work
 * Five definitions of home: overall, daytime, nighttime, weekday, weekend
 * Home Locations by antenna (SET2) all 24 datasets for all five home defs
-* Home Locations by arrondisemont (SET3) first 4-5 datasets all five home defs
+* Home Locations by arrondisemont (SET3) all 12 datasets all five home defs
 * Aggregate movement between antennas (2-mers) for first dataset
 * Visualizations of graphs showing overall movement between antennas
 * Distances between each antenna
@@ -56,7 +56,6 @@ src
 
 ##### Current Work
 * Generate summary statistics on first 5 users' patterns
-* Bash script is currently running to get all datasets in SET3 for all five home location definitions
 * Enumerate a single user's abstract pattern of movements
 * Bishal -- Overall migration by taking the difference between home location result datasets (i.e. week2 - week 1 for number of users whose home is at each ant/arr)
 * Morgan -- Discrete mathematics proof -- Given k nodes, how many unique/abstract patterns can be found in a path/traversal of length k?
