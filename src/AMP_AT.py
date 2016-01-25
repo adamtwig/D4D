@@ -39,27 +39,31 @@ def main():
 	data_array_2d = read_csv_to_matrix(input_file)
 
 	patterns = list()
-	for i in range(104):
+	
+	for i in range(887):
 		subPatterns = list()
 		for j in range(i+1):
-			#print i, data_array_2d[i, 2], data_array_2d[j:(i+1), 2]
+			#print i, data_array_2d[i, 0]
 			#print data_array_2d[j:(i+1), 2]	
 			#patterns[i,j] = str(data_array_2d[j:(i+1),2])
 			#patterns.append(list(data_array_2d[j:(i+1), 2]))	
-			subPatterns.append(list(data_array_2d[j:(i+1), 2]))
+			userIndex = data_array_2d[i, 0]
+			patternIndex = data_array_2d[j:(i+1),2]
+			#subPatterns.append(list(data_array_2d[j:(i+1), 2]))
+			subPatterns.append(userIndex+str(patternIndex))
 		patterns.append(subPatterns)
 	
 	patternDict = {}
 
-	for i in range(1, 104):
-		for j in range(104):
+	for i in range(1, 887):
+		for j in range(887):
 			if len(patterns[j]) > i:
 				#print 1, i, patterns[j][-i]			
 				#patternDict[i*104+j] = patterns[j][-i]
-				if not str(patterns[j][-i]) in patternDict:
-					patternDict[str(patterns[j][-i])] = 1
+				if not patterns[j][-i] in patternDict:
+					patternDict[patterns[j][-i]] = 1
 				else:
-					patternDict[str(patterns[j][-i])] += 1
+					patternDict[patterns[j][-i]] += 1
 	
 	#print patternDict
 
