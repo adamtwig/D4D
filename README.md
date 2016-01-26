@@ -21,10 +21,6 @@
 - [Link to D4D](http://www.d4d.orange.com/)
 
 ##### Guide to the repository
-data   
-	 -- timestamp removed datasets  
-	 -- antenna/arrondisemont locations  
-
 docs   
 	 -- helpful links  
 	 -- notes from research meetings  
