@@ -22,7 +22,7 @@ from home_calc_functions_BC import *
 def main():
     
     raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
-    sample_dir = '/opt2/D4D/senegal/code/D4D_working/sample_data/'
+    sample_dir = '/opt2/D4D/senegal/code/data/sample_data/'
 
     if ( len(sys.argv) != 2 ):
         print 'program parameters incorrect'
@@ -56,13 +56,13 @@ def main():
 
         # subtract 1 since original data runs from 1 to n
         user_index = int(data_array_2d[x][0]) - 1
-	antenna_index = int(data_array_2d[x][2]) - 1
+		antenna_index = int(data_array_2d[x][2]) - 1
 
         date = get_date(data_array_2d[x][1])
         
         # for every pair of user/ant increment 1
         nofilter[user_index, antenna_index]+=1
-
+	'''
         if (date.time() > today7am.time() and date.time() < today7pm.time()):
             daytime[user_index, antenna_index]+=1
         else:
@@ -72,15 +72,14 @@ def main():
             weekdays[user_index, antenna_index]+=1
         else:
             weekends[user_index, antenna_index]+=1
-    
+   ''' 
     out_dir = 'out_data_BC/'
 
     # aggregrate frequencies and write output to csv
-    output_write(out_dir+'out_nofilter', filename, agg_ant_freq(nofilter))
-    output_write(out_dir+'out_daytime_', filename, agg_ant_freq(daytime))
-    output_write(out_dir+'out_nighttime_', filename, agg_ant_freq(nighttime))
-    output_write(out_dir+'out_weekdays_', filename, agg_ant_freq(weekdays))
-    output_write(out_dir+'out_weekends_', filename, agg_ant_freq(weekends))
+    output_write(out_dir+'out_nofilter_home', filename, agg_ant_freq(nofilter))
+    #output_write(out_dir+'out_daytime_', filename, agg_ant_freq(daytime))
+    #output_write(out_dir+'out_nighttime_', filename, agg_ant_freq(nighttime))
+    #output_write(out_dir+'out_weekdays_', filename, agg_ant_freq(weekdays))
 
 if __name__ == "__main__":
     main()

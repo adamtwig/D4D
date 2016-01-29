@@ -1,0 +1,4 @@
+#!/bin/bash
+./home_calc2_BC.py sample_SET2_P01.csv
+./home_calc2_BC.py sample2_SET2_P01.csv 
+./home_calc2_BC.py sample3_SET2_P01.csv
