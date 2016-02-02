@@ -49,24 +49,28 @@ src
 * Distances between each antenna
 * Enumeration of specific patterns of movement by antenna for first five users
 * Enumerations aggregated by antenna for individual users
+* Home Locations by user for each month (SET3) all five home defs
 
 ##### Current Work
-* Generate summary statistics on first 5 users' patterns
-* Enumerate a single user's abstract pattern of movements
+* Adam -- Concentrate AMP code on first 10-mers
+* Adam -- Output well-formatted specific 1-mers to 10-mers for first 100 users
+* Adam -- Enumerate a single user's abstract pattern of movements
+* Adam -- Output well-formatted abstract 1-mers to 10-mers for first 100 users
+* Adam -- Alter user home location for daily (365) and weekly (52)
+* Adam -- Develop a high-level overview of Senegal with arrondisement boundaries using D3.js 
 * Bishal -- Overall migration by taking the difference between home location result datasets (i.e. week2 - week 1 for number of users whose home is at each ant/arr)
-* Morgan -- Discrete mathematics proof -- Given k nodes, how many unique/abstract patterns can be found in a path/traversal of length k?
+* Bishal -- Month by month migration by user
+* Matt -- Specific patterns summary statistics/histograms on first 100 users
+* Matt -- Abstract patterns summary statistics/histograms on first 100 users
 * Morgan -- Generate voronoi diagram by antenna locations 
 
 ##### Implementation Issues
 * Dynamic programming approach to enumeration
-* Best data structure to hold enumerations by user
-* How to store/save users' specific patterns
-* Rank/unrank algorithm to translate specific to abstract patterns
+* Best data structure to hold specific/abstract patterns by user
 
 ##### Future Work
 * Enumerate all users' specific patterns of movements
 * Enumerate all users' abstract patterns of movements
-* Home location user list for all weeks
 * Generate a geographical and interactive data visualization using D3.js to understand aggregate user movement
 
 ##### Potential Directions
