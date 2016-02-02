@@ -17,6 +17,7 @@
 123 arrondisemonts
 1666 antennas
 ~300,000 users
+Five definitions of home: overall, daytime, nighttime, weekday, weekend  
 
 - [Link to D4D](http://www.d4d.orange.com/)
 
@@ -41,14 +42,13 @@ src
 	-- home_calc_functions_AT.py - helper functions to generate home locations    
 
 ##### Previous Work
-* Five definitions of home: overall, daytime, nighttime, weekday, weekend
 * Home Locations by antenna (SET2) all 24 datasets for all five home defs
 * Home Locations by arrondisemont (SET3) all 12 datasets all five home defs
 * Aggregate movement between antennas (2-mers) for first dataset
 * Visualizations of graphs showing overall movement between antennas
 * Distances between each antenna
 * Enumeration of specific patterns of movement by antenna for first five users
-* Enumerations aggregated by antenna for individual users
+* Enumerations aggregated by antenna for first five users
 * Home Locations by user for each month (SET3) all five home defs
 
 ##### Current Work
