@@ -22,7 +22,7 @@ from home_calc_functions_AT import *
 def main():
     
 	raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
-	sample_dir = '/opt2/D4D/senegal/code/sample_data/'
+	sample_dir = '/opt2/D4D/senegal/code/data/sample_data/'
 
 	if ( len(sys.argv) != 2 ):
 		print 'program parameters incorrect'
@@ -40,7 +40,10 @@ def main():
 
 	patterns = list()
 	
-	for i in range(887):
+	#for i in range(887):
+	for i in range(150):	
+		user_index = int(data_array_2d[i][0])
+
 		subPatterns = list()
 		for j in range(i+1):
 			#print i, data_array_2d[i, 0]
@@ -55,8 +58,10 @@ def main():
 	
 	patternDict = {}
 
-	for i in range(1, 887):
-		for j in range(887):
+	#for i in range(1, 887):
+	#	for j in range(887):
+	for i in range(1, 150):
+		for j in range(150):
 			if len(patterns[j]) > i:
 				#print 1, i, patterns[j][-i]			
 				#patternDict[i*104+j] = patterns[j][-i]

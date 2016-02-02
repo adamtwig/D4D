@@ -83,6 +83,9 @@ def main():
 		antenna_index = int(data_array_2d[x][2]) - 1
 
 		date = get_date(data_array_2d[x][1])
+		ic = date.isocalendar()
+		tt = date.timetuple()	
+		print user_index, antenna_index, date, "Week:", ic[1], "Day:", tt.tm_yday
        
         # for every pair of user/ant increment 1
 		nofilter[user_index, antenna_index]+=1
