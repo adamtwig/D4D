@@ -14,9 +14,9 @@
 ]    
 
 ##### Data Info:
-123 arrondisemonts
-1666 antennas
-~300,000 users
+123 arrondisemonts  
+1666 antennas  
+~300,000 users  
 Five definitions of home: overall, daytime, nighttime, weekday, weekend  
 
 - [Link to D4D](http://www.d4d.orange.com/)
