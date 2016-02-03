@@ -22,6 +22,7 @@ chown :group file
 - [Path Variable](https://en.wikipedia.org/wiki/PATH_(variable))
 - [Set default group permissions](http://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory): `chmod g+s`
 -[get first n lines of file and pipe into new file](http://stackoverflow.com/questions/1325701/how-to-get-the-copy-the-first-few-lines-of-a-giant-file-and-add-a-line-of-text-a): `head -100 file.csv > file2.csv`
+- SCP from Okami to Eos (while logged into Eos): `scp -P 43022 username@okami:/dir/file localDir/`
 
 # VIM
 -[Unhighlight search](http://stackoverflow.com/questions/99161/how-do-you-make-vim-unhighlight-what-you-searched-for): `:noh`
