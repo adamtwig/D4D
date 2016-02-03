@@ -57,16 +57,12 @@ src
 * Adam -- Enumerate a single user's abstract pattern of movements
 * Adam -- Output well-formatted abstract 1-mers to 10-mers for first 100 users
 * Adam -- Alter user home location for daily (365 out-values per user)
-
 * Adam/Michael -- Develop a high-level overview of Senegal with arrondisement boundaries using D3.js   
-
 * Bishal -- Overall migration by taking the difference between home location result datasets (i.e. week2 - week 1 for number of users whose home is at each ant/arr)
 * Bishal -- Month by month migration by user
 * Bishal -- Day by day migration by user
-
 * Matt -- Specific patterns summary statistics/histograms on first 100 users
 * Matt -- Abstract patterns summary statistics/histograms on first 100 users
-
 * Morgan -- Generate voronoi diagram by antenna locations 
 
 ##### Implementation Issues
