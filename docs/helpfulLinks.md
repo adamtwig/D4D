@@ -22,6 +22,8 @@ chown :group file
 - [Path Variable](https://en.wikipedia.org/wiki/PATH_(variable))
 - [Set default group permissions](http://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory): `chmod g+s`
 -[get first n lines of file and pipe into new file](http://stackoverflow.com/questions/1325701/how-to-get-the-copy-the-first-few-lines-of-a-giant-file-and-add-a-line-of-text-a): `head -100 file.csv > file2.csv`
+- Log into Okami from Eos: `ssh -p 43022 okami -X`
+- Okami D4D: `cd /opt2/D4D/`
 - SCP from Okami to Eos (while logged into Eos): `scp -P 43022 username@okami:/dir/file localDir/`
 
 # VIM
