@@ -9,6 +9,8 @@
 - [D3 Make a Map](http://bost.ocks.org/mike/map/)
 - [D3 and Leaflet](http://bost.ocks.org/mike/leaflet/)
 - [AmChart](https://www.amcharts.com/javascript-maps/)
+- [Convert Shapefile to TopoJSON](http://www.mapshaper.org/)
+- [TopoJSON Command Line](https://github.com/mbostock/topojson/wiki/Command-Line-Reference)
 
 # SSH
 - [Set up SSH for Git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html)

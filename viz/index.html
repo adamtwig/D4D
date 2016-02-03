@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+    font-size: 12px;
+}
+</style>
+
+<body>
+
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+
+<script>
+
+/* 
+
+- http://bost.ocks.org/mike/map/
+- http://gis.stackexchange.com/questions/104655/is-there-a-standard-projection-for-sub-saharan-africa 
+- http://stackoverflow.com/questions/14492284/center-a-map-in-d3-given-a-geojson-object
+- http://mapstarter.com/
+
+*/
+
+var width = 1000;
+var height = 1000;
+
+var projection = d3.geo.mercator()
+    .scale((width + 1) / 2 / Math.PI)
+    .translate([width / 2, height / 2])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("geodata/senegal_arr_2014_wgs_topojson.json", function(error, senegal) {
+    if (error) {
+        return console.error(error);
+    }    
+   
+    svg.append("path")
+        .datum(topojson.feature(senegal, senegal.objects.arrondissements))
+        .attr("d", path);
+});
+</script>
+
+</body>
