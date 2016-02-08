@@ -50,10 +50,9 @@ src
 * Enumeration of specific patterns of movement by antenna for first five users
 * Enumerations aggregated by antenna for first five users
 * Home Locations by user for each month (SET3) all five home defs
+* Output well-formatted specific 1-mers to 10-mers for first 100 users
 
 ##### Current Work
-* Adam -- Concentrate AMP code on first 10-mers
-* Adam -- Output well-formatted specific 1-mers to 10-mers for first 100 users
 * Adam -- Enumerate a single user's abstract pattern of movements
 * Adam -- Output well-formatted abstract 1-mers to 10-mers for first 100 users
 * Adam -- Alter user home location for daily (365 out-values per user)

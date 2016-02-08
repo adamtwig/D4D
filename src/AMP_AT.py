@@ -38,24 +38,52 @@ def main():
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
-	patterns = list()
-	
-	#for i in range(887):
-	for i in range(150):	
-		user_index = int(data_array_2d[i][0])
+	patAmount = len(data_array_2d)
+	#patAmount = 1000
 
-		subPatterns = list()
-		for j in range(i+1):
-			#print i, data_array_2d[i, 0]
-			#print data_array_2d[j:(i+1), 2]	
+	#windowSize = 10
+
+	#for i in range(patAmount):
+	#	print i, data_array_2d[i] 
+	'''	
+			if i > patAmount - (windowSize+1):
+				endWindow = i + patAmount - (patAmount - windowSize+1)
+			else:
+				endWindow = 
+'''
+	for i in range(patAmount):
+		windowSize = 10
+		if i > (patAmount - windowSize):
+			windowSize = patAmount - i
+		for j in range(1,windowSize+1):
+			print str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
+	
+
+	#patterns = list()
+	#userWindow = 1
+	#windowStart = 1
+	#for i in range(887):
+	#for i in range(patAmount):	
+		#user_index = int(data_array_2d[i][0])
+		#subPatterns = list()
+		#if userWindow != int(user_index):
+		#	userWindow = user_index
+		#	windowStart = i
+		#for j in range(i+1):
+		#for j in range(1,11):	
+			#print i, data_array_2d[i, 0],
+			#print i,",",j,",",data_array_2d[i, 0],",",data_array_2d[j:(i+1), 2]	
+			#print i, j, data_array_2d[i,0],data_array_2d[i:(i+j), 2]
 			#patterns[i,j] = str(data_array_2d[j:(i+1),2])
 			#patterns.append(list(data_array_2d[j:(i+1), 2]))	
-			userIndex = data_array_2d[i, 0]
-			patternIndex = data_array_2d[j:(i+1),2]
+			#userIndex = data_array_2d[i, 0]
+			#patternIndex = data_array_2d[j:(i+1),2]
 			#subPatterns.append(list(data_array_2d[j:(i+1), 2]))
-			subPatterns.append(userIndex+str(patternIndex))
-		patterns.append(subPatterns)
+			#subPatterns.append(userIndex+str(patternIndex))
+		#patterns.append(subPatterns)
 	
+	#print patterns
+'''
 	patternDict = {}
 
 	#for i in range(1, 887):
@@ -77,8 +105,8 @@ def main():
 	sorted_patternDict = sorted(patternDict.items(), 
 							key=operator.itemgetter(1), reverse=True)
 
-	print sorted_patternDict
-
+	#print sorted_patternDict
+'''
 
 if __name__ == "__main__":
     main()
