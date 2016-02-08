@@ -1,5 +1,8 @@
 ##### References
 
+# Git  
+- [Git commit troubles](http://stackoverflow.com/questions/21168846/cant-remove-file-from-git-commit)
+
 # Python
 - [Run python from interpreter](http://stackoverflow.com/questions/15587877/run-a-python-script-in-terminal-without-the-python-command)
 - [Import file](http://stackoverflow.com/questions/51520/how-to-get-an-absolute-file-path-in-python)
