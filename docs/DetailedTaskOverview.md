@@ -17,7 +17,8 @@
 
 #### Matt - Time
 ##### Intro Task
-* Aggregate patterns by each user (i.e. User 1, Pattern 1, count)  
+* Aggregate patterns by each user (i.e. User 1, Pattern 1, count)   
+
 ##### Motivating Questions
 * How often does a user move?
 * What time of day is the most active for movement?
@@ -32,6 +33,7 @@
 #### Morgan - Movement Statistics/Geography
 ##### Intro Task
 * Generate voronoi diagram by antenna locations  
+
 ##### Motivating Questions
 * How active is a user? 
 * (Generate summary statistics/histogram on 2-mer AA vs. AB)
