@@ -33,7 +33,7 @@ output
   
 
 src    
-	-- AMP_AT.py - current working code to enumerate specific users patterns of movement  
+	-- AMP_AT.py - current working code to specific users patterns of movement  
 	-- anon_data_AT.py - generates an "anonymized" dataset with timesteps removed   
 	-- ant_pairs_AT.py - aggregates movements between antennas for all users   
 	-- BC_working - directory dedicated to Bishal's migration code   
@@ -64,8 +64,7 @@ src
 * Michael -- Interactivity of Senegal with arrondisement boundaries using D3.js    
 * Michael -- Plotting antennas in Senegal using D3.js     
 * Morgan -- Generate voronoi diagram by antenna locations   
-* Morgan -- Abstract out movement (i.e. I don't care where they moved to, just did they move? AA vs. AB) to address   
-Time patterns (i.e. average time of movement by user by home location)
+* Morgan -- How often does a user move? (i.e. average time of movement by user by home location)
 * Morgan -- Does definition of home location matter? (statistically significant difference)
 * Morgan -- Does time of year matter? (statistically significant difference)
 
