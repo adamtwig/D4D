@@ -26,7 +26,7 @@
 
 ##### Main Tasks  
 * How often does a user move?  
-..* average time of movement by user by home location  
+  * average time of movement by user by home location  
 * What time of day is the most active for movement?
 * Does time of year matter?
 
@@ -47,11 +47,11 @@
 
 ##### Main Tasks   
 * How active is a user? 
-..* Generate summary statistics/histogram on 2-mer AA vs. AB
+  * Generate summary statistics/histogram on 2-mer AA vs. AB
 * How well-travelled is a user?
-..* Amount of unique 2-mers vs. 3-mers vs. 4-mers ...
+  * Amount of unique 2-mers vs. 3-mers vs. 4-mers ...
 * Does definition of home location matter for abstract patterns?
-..* statistically significant difference
+  * statistically significant difference
 
 
 
