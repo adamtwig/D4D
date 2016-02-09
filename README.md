@@ -1,7 +1,7 @@
 # Grand Valley State University (GVSU)
 # Computational Science Research
 ## Adam Terwilliger
-### Credits: Michael Baldwin, Bishal Chamling, Jonathan Leidig, Morgan Oneka, Greg Wolffe
+### Credits: Michael Baldwin, Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
 
 #### Summary
 ##### Working with data obtained from the Data 4 Development (D4D) challenge, we look to better understand how people move and how diseases spread using over a billion observations. We are employing data mining and pattern recognition techniques using Python.   
@@ -52,21 +52,13 @@ src
 * Output well-formatted specific 1-mers to 10-mers for first 80, 800, 8000 users
 
 ##### Current Work
-* Adam -- Enumerate a single user's abstract pattern of movements   
-* Adam -- Alter user home location for daily (365 out-values per user)    
-* Adam -- Develop an abstract graph in D3.js using movement patterns  
-* Adam -- Clustering similar users/home locations by 2-mers, 3-mers, 4-mers, ... 
-* Bishal -- Heat map for aggregate migration between arrondisements by month   
-* Bishal -- Visualization for month by month migration by user   
-* Matt -- Aggregate patterns by each user (i.e. User 1, Pattern 1, count)   
-* Matt -- How active is a user? (Generate summary statistics/histogram on 2-mer AA vs. AB)  
-* Matt -- How well-travelled is a user? (Amount of unique 2-mers vs. 3-mers vs. 4-mers ...)  
-* Michael -- Interactivity of Senegal with arrondisement boundaries using D3.js    
-* Michael -- Plotting antennas in Senegal using D3.js     
-* Morgan -- Generate voronoi diagram by antenna locations   
-* Morgan -- How often does a user move? (i.e. average time of movement by user by home location)
-* Morgan -- Does definition of home location matter? (statistically significant difference)
-* Morgan -- Does time of year matter? (statistically significant difference)
+* Adam -- Abstract Movement Patterns
+* Bishal -- Migration
+* Matt -- Time
+* Michael -- Interactive Visualization
+* Morgan -- Movement Statistics/Geography
+
+###### See DetailedTaskFlow.md for specific task breakdowns
 
 ##### Implementation Issues
 * Dynamic programming approach to enumeration 
