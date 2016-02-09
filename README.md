@@ -38,8 +38,8 @@ src
 	-- ant_pairs_AT.py - aggregates movements between antennas for all users   
 	-- BC_working - directory dedicated to Bishal's migration code   
 	-- dist_between_antennas.py - self evident   
-	-- home_calc_AT.py - generates five definitions of home location output for antennas   
-	-- home_calc_functions_AT.py - helper functions to generate home locations    
+	-- uHome_calc_AT.py - generates five definitions of home location output aggregated by antennas and users  
+	-- uHome_calc_functions_AT.py - helper functions to generate home locations    
 
 ##### Previous Work
 * Home Locations by antenna (SET2) all 24 datasets for all five home defs
@@ -48,30 +48,36 @@ src
 * Visualizations of graphs showing overall movement between antennas
 * Distances between each antenna
 * Enumeration of specific patterns of movement by antenna for first five users
-* Enumerations aggregated by antenna for first five users
 * Home Locations by user for each month (SET3) all five home defs
-* Output well-formatted specific 1-mers to 10-mers for first 100 users
+* Output well-formatted specific 1-mers to 10-mers for first 80, 800, 8000 users
 
 ##### Current Work
-* Adam -- Enumerate a single user's abstract pattern of movements
-* Adam -- Output well-formatted abstract 1-mers to 10-mers for first 100 users
-* Adam -- Alter user home location for daily (365 out-values per user)
-* Adam/Michael -- Develop a high-level overview of Senegal with arrondisement boundaries using D3.js   
-* Bishal -- Overall migration by taking the difference between home location result datasets (i.e. week2 - week 1 for number of users whose home is at each ant/arr)
-* Bishal -- Month by month migration by user
-* Bishal -- Day by day migration by user
-* Matt -- Specific patterns summary statistics/histograms on first 100 users
-* Matt -- Abstract patterns summary statistics/histograms on first 100 users
-* Morgan -- Generate voronoi diagram by antenna locations 
+* Adam -- Enumerate a single user's abstract pattern of movements   
+* Adam -- Alter user home location for daily (365 out-values per user)    
+* Adam -- Develop an abstract graph in D3.js using movement patterns  
+* Adam -- Clustering similar users/home locations by 2-mers, 3-mers, 4-mers, ... 
+* Bishal -- Heat map for aggregate migration between arrondisements by month   
+* Bishal -- Visualization for month by month migration by user   
+* Matt -- Aggregate patterns by each user (i.e. User 1, Pattern 1, count)   
+* Matt -- How active is a user? (Generate summary statistics/histogram on 2-mer AA vs. AB)  
+* Matt -- How well-travelled is a user? (Amount of unique 2-mers vs. 3-mers vs. 4-mers ...)  
+* Michael -- Interactivity of Senegal with arrondisement boundaries using D3.js    
+* Michael -- Plotting antennas in Senegal using D3.js     
+* Morgan -- Generate voronoi diagram by antenna locations   
+* Morgan -- Abstract out movement (i.e. I don't care where they moved to, just did they move? AA vs. AB) to address   
+Time patterns (i.e. average time of movement by user by home location)
+* Morgan -- Does definition of home location matter? (statistically significant difference)
+* Morgan -- Does time of year matter? (statistically significant difference)
 
 ##### Implementation Issues
-* Dynamic programming approach to enumeration
-* Best data structure to hold specific/abstract patterns by user
+* Dynamic programming approach to enumeration 
+* Best data structure to hold specific/abstract patterns by user  
 
 ##### Future Work
-* Enumerate all users' specific patterns of movements
-* Enumerate all users' abstract patterns of movements
-* Generate a geographical and interactive data visualization using D3.js to understand aggregate user movement
+* Adam -- Enumerate all users' specific patterns of movements
+* Adam -- Enumerate all users' abstract patterns of movements
+* Bishal -- Day by day migration by user
+* Matt -- Abstract patterns summary statistics/histograms on first 100 users
 
 ##### Potential Directions
 * Clustering users based on movement patterns and investigate their home location to infer any sociological and cultural phenomena
