@@ -14,7 +14,7 @@
 * Clustering similar users/home locations by 2-mers, 3-mers, 4-mers, ...
 
 #### Bishal - Migration  
-#### Motivating Question  
+##### Motivating Question  
 * How do people move on a large scale (daily, weekly, monthly)?
 
 ##### Main Tasks
@@ -23,10 +23,13 @@
 * Does the definition of home location matter for migration?
 
 #### Matt - Time
+#### Motivating Question  
+* How does time affect how people move?
+
 ##### Intro Task
 * Aggregate patterns by each user (i.e. User 1, Pattern 1, count)   
 
-##### Motivating Questions
+##### Main Tasks
 * How often does a user move?
 * What time of day is the most active for movement?
 * Does time of year matter?
@@ -43,10 +46,12 @@
 * Plotting antennas in Senegal using D3.js
 
 #### Morgan - Movement Statistics/Geography
+#### Motivating Question  
+* figure out
 ##### Intro Task
 * Generate voronoi diagram by antenna locations  
 
-##### Motivating Questions
+##### Main Tasks   
 * How active is a user? 
 * (Generate summary statistics/histogram on 2-mer AA vs. AB)
 * How well-travelled is a user?
