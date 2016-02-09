@@ -58,20 +58,15 @@ src
 * Michael -- Interactive Visualization
 * Morgan -- Movement Statistics/Geography
 
-###### See DetailedTaskFlow.md for specific task breakdowns
+###### See [DetailedTaskFlow.md](https://github.com/adamtwig/D4D/blob/master/docs/DetailedTaskOverview.md) for specific task breakdowns
 
 ##### Implementation Issues
 * Dynamic programming approach to enumeration 
 * Best data structure to hold specific/abstract patterns by user  
 
 ##### Future Work
-* Adam -- Enumerate all users' specific patterns of movements
-* Adam -- Enumerate all users' abstract patterns of movements
-* Bishal -- Day by day migration by user
-* Matt -- Abstract patterns summary statistics/histograms on first 100 users
-
-##### Potential Directions
+* Enumeration all users' patterns of movements
 * Clustering users based on movement patterns and investigate their home location to infer any sociological and cultural phenomena
 * Using movement patterns, develop a model that can generate a set of random users (synthetic dataset)
 * Using movement patterns, develop a model that can differentiate (i.e classify) a user's country (Senegal vs. Ivory Coast)
-
+* Generate an artificial intelligence agent/synthetic population
