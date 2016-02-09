@@ -1,8 +1,3 @@
-# Grand Valley State University (GVSU)
-# Computational Science Research
-## Adam Terwilliger
-### Credits: Michael Baldwin, Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
-
 #### Adam - Abstract Patterns   
 ##### Motivating Question     
 * How do people move on a small scale (by the second/minute/hour)?    
@@ -23,7 +18,7 @@
 * Does the definition of home location matter for migration?
 
 #### Matt - Time
-#### Motivating Question  
+### Motivating Question  
 * How does time affect how people move?
 
 ##### Intro Task
@@ -47,8 +42,8 @@
 
 #### Morgan - Movement Statistics/Geography
 #### Motivating Question  
-* figure out
-##### Intro Task
+* figure out   
+##### Intro Task   
 * Generate voronoi diagram by antenna locations  
 
 ##### Main Tasks   
