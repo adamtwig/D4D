@@ -5,7 +5,7 @@ Developer: Adam Terwilliger
 Version: 1.0
 Purpose: D4D (Data for Development) Challenge
          Data mining for Orange Cell Phone records
-Details: Definition of "home" with matrix representation
+Details: Output an anonymized version of dataset
 
          Helper functions imported from --
 		home_calc_functions_AT.py
@@ -44,17 +44,8 @@ def main():
     outfile = open(prefix+filename, 'w')
     for i in range(len(data_array_2d)):
         # add 1 since frequency matrices run from 0 to n-1
-        #outfile.write(str(data_array_2d[i,0] + ',' + str(data_array_2d[i,2]) + "\n")
         outfile.write(str(data_array_2d[i,0]) + ',' + str(data_array_2d[i,2]) + "\n")
 
-
-
-    # aggregrate frequencies and write output to csv
-    #output_write(out_dir+'out_nofilter', filename, agg_ant_freq(nofilter))
-    #output_write(out_dir+'out_daytime_', filename, agg_ant_freq(daytime))
-    #output_write(out_dir+'out_nighttime_', filename, agg_ant_freq(nighttime))
-    #output_write(out_dir+'out_weekdays_', filename, agg_ant_freq(weekdays))
-    #output_write(out_dir+'out_weekends_', filename, agg_ant_freq(weekends))
 
 if __name__ == "__main__":
     main()

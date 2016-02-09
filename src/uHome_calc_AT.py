@@ -25,7 +25,9 @@ def main():
 	#raw_dir = '/opt2/D4D/senegal/data/SET2/raw/'
 	raw_dir = '/opt2/D4D/senegal/data/'
 	sample_dir = '/opt2/D4D/senegal/code/data/sample_data/'
-	out_dir = '../output/user/'
+	out_user_dir = '../output/user/'
+	out_ant_dir = '../output/'
+
 
 	if ( len(sys.argv) != 2 ):
 		print 'program parameters incorrect'
@@ -59,6 +61,7 @@ def main():
 	userIDdict = {}
 	userIDdict2 = {}
 
+	# need to create a dictionary for userIDs in SET3
 	for i in range(len(user_ids)):
 		userIDdict[user_ids[i]] = i
 		userIDdict2[i] = user_ids[i]
@@ -85,7 +88,7 @@ def main():
 		date = get_date(data_array_2d[x][1])
 		ic = date.isocalendar()
 		tt = date.timetuple()	
-		print user_index, antenna_index, date, "Week:", ic[1], "Day:", tt.tm_yday
+		#print user_index, antenna_index, date, "Week:", ic[1], "Day:", tt.tm_yday
        
         # for every pair of user/ant increment 1
 		nofilter[user_index, antenna_index]+=1
@@ -100,17 +103,24 @@ def main():
 		else:
 			weekends[user_index, antenna_index]+=1
     
-    # aggregrate frequencies and write output to csv
-	output_write(out_dir+'out_user_nofilter_', filename, 
-					agg_ant_freq(nofilter), userIDdict2)
-	output_write(out_dir+'out_user_daytime_', filename,
-					agg_ant_freq(daytime), userIDdict2)
-	output_write(out_dir+'out_user_nighttime_', filename,
-					agg_ant_freq(nighttime), userIDdict2)
-	output_write(out_dir+'out_user_weekdays_', filename, 
-					agg_ant_freq(weekdays), userIDdict2)
-	output_write(out_dir+'out_user_weekends_', filename,
-					agg_ant_freq(weekends), userIDdict2)
+    # aggregrate frequencies by antenna and write output to csv
+	ant_output_write(out_ant_dir+'out_nofilter', filename, agg_ant_freq(nofilter))
+	ant_output_write(out_ant_dir+'out_daytime_', filename, agg_ant_freq(daytime))
+	ant_output_write(out_ant_dir+'out_nighttime_', filename, agg_ant_freq(nighttime))
+	ant_output_write(out_ant_dir+'out_weekdays_', filename, agg_ant_freq(weekdays))
+	ant_output_write(out_ant_dir+'out_weekends_', filename, agg_ant_freq(weekends))
+
+	# get user home location and write output to csv
+	user_output_write(out_user_dir+'out_user_nofilter_', filename, 
+					agg_user_freq(nofilter), userIDdict2)
+	user_output_write(out_user_dir+'out_user_daytime_', filename,
+					agg_user_freq(daytime), userIDdict2)
+	user_output_write(out_user_dir+'out_user_nighttime_', filename,
+					agg_user_freq(nighttime), userIDdict2)
+	user_output_write(out_user_dir+'out_user_weekdays_', filename, 
+					agg_user_freq(weekdays), userIDdict2)
+	user_output_write(out_user_dir+'out_user_weekends_', filename,
+					agg_user_freq(weekends), userIDdict2)
 
 if __name__ == "__main__":
     main()

@@ -44,16 +44,31 @@ def create_date(h, m, s):
 
 # aggregate 2d numpy array on x axis
 # for each user return the index of antenna made max calls
-# return 1d array for each antenna num users made max calls
-def agg_ant_freq(array_2d):
+def agg_user_freq(array_2d):
     max_ant_indices = np.argmax(array_2d, axis=1)
     return max_ant_indices
 
+# aggregate 2d numpy array on x axis
+# for each user return the index of antenna made max calls
+# return 1d array for each antenna num users made max calls
+def agg_ant_freq(array_2d):
+    max_ant_indices = np.argmax(array_2d, axis=1)
+    return np.bincount(max_ant_indices)
+
 # generate file of form:
-# antennaID, numUsersMadeMaxCalls
-def output_write(prefix, filename, antID_array, antDict):
+# userID, homeLocation
+def user_output_write(prefix, filename, antID_array, antDict):
     outfile = open(prefix+filename, 'w')
     for i in range(len(antID_array)):
         # add 1 since frequency matrices run from 0 to n-1
         outfile.write(str(antDict[i]) + ',' + str(antID_array[i]+1) + "\n")
+
+# generate file of form:
+# antennaID, numUsersMadeMaxCalls
+def ant_output_write(prefix, filename, antID_array):
+    outfile = open(prefix+filename, 'w')
+    for i in range(len(antID_array)):
+        # add 1 since frequency matrices run from 0 to n-1
+        outfile.write(str(i + 1) + ',' + str(antID_array[i]) + "\n")
+
 
