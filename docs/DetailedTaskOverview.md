@@ -18,7 +18,7 @@
 * Does the definition of home location matter for migration?
 
 #### Matt - Time
-### Motivating Question  
+##### Motivating Question  
 * How does time affect how people move?
 
 ##### Intro Task
@@ -39,7 +39,7 @@
 * Plotting antennas in Senegal using D3.js
 
 #### Morgan - Movement Statistics/Geography
-#### Motivating Question  
+##### Motivating Question  
 * figure out   
 
 ##### Intro Task   
