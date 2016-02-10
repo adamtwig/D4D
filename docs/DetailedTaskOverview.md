@@ -29,6 +29,9 @@
 * Aggregate patterns by each user (i.e. User 1, Pattern 1, count)   
 
 ##### Main Tasks  
+* How mobile/static is a user? 
+  * Generate summary statistics/histogram on 2-mer AA vs. AB
+  * Group by home location  
 * How often does a user move?  
   * Average time of movement by user by home location  
 * What time of day is the most active for movement?
@@ -55,10 +58,10 @@
 * Generate voronoi diagram by antenna locations  
 
 ##### Main Tasks   
-* How mobile/static is a user? 
-  * Generate summary statistics/histogram on 2-mer AA vs. AB
-  * Group by home location  
-* How well-travelled is a user?  
+* How well-travelled is a user?
+  * Average distance travelled between calls
+  * Amount of miles travelled each day/week/month
+* How diverse of a traveller is a user?  
   * Amount of unique 2-mers vs. 3-mers vs. 4-mers ...
 * Can we make any inference to forms of travel/transportation?
   * Looking at the distances between antennas 
@@ -70,6 +73,4 @@
 * Does definition of home location matter for abstract patterns?  
   * What measures/variables to use to find a
 	statistically significant difference?  
-
-
 
