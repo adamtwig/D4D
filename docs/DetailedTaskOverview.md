@@ -46,7 +46,7 @@
 
 ### Michael - Interactive Visualization     
 ##### Motivating Question   
-* What is the best way to visualize movement?   
+* What is the best way to visualize movement over time?   
 
 ##### Main Tasks   
 * Interactivity of Senegal with arrondisement boundaries using D3.js   
