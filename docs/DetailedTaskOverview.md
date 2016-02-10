@@ -15,6 +15,8 @@
 ##### Main Tasks
 * Heat map for aggregate migration between arrondisements by month
 * Visualization for month by month migration by user
+* Calculate mean/variability of migrations between arr pairs aggregated by month
+* Gives rise to event detection, as any migration that was >3 s.d's away would be meaningful
 
 ##### Open-ended Task
 * Does the definition of home location matter for migration?
