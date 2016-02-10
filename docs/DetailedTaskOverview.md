@@ -15,7 +15,11 @@
 ##### Main Tasks
 * Heat map for aggregate migration between arrondisements by month
 * Visualization for month by month migration by user
+
+##### Open-ended Task
 * Does the definition of home location matter for migration?
+  * What measures/variables to use to find a
+	statistically significant difference?
 
 #### Matt - Time
 ##### Motivating Question  
@@ -26,9 +30,14 @@
 
 ##### Main Tasks  
 * How often does a user move?  
-  * average time of movement by user by home location  
+  * Average time of movement by user by home location  
 * What time of day is the most active for movement?
-* Does time of year matter?
+  * How long will a user stay at a location at 9 am, noon, 9 pm?
+
+##### Open-ended Task
+* Does time of year matter for abstract patterns?
+  * What measures/variables to use to find a
+	statistically significant difference?
 
 #### Michael - Interactive Visualization     
 ##### Motivating Question   
@@ -38,22 +47,29 @@
 * Interactivity of Senegal with arrondisement boundaries using D3.js   
 * Plotting antennas in Senegal using D3.js
 
-#### Morgan - Movement Statistics/Geography
+#### Morgan - Location
 ##### Motivating Question  
-* figure out   
+* How does geography affect how people move?
 
 ##### Intro Task   
 * Generate voronoi diagram by antenna locations  
 
 ##### Main Tasks   
-* How active is a user? 
+* How mobile/static is a user? 
   * Generate summary statistics/histogram on 2-mer AA vs. AB
-* How well-travelled is a user?
+  * Group by home location  
+* How well-travelled is a user?  
   * Amount of unique 2-mers vs. 3-mers vs. 4-mers ...
-* Does definition of home location matter for abstract patterns?
-  * statistically significant difference
+* Can we make any inference to forms of travel/transportation?
+  * Looking at the distances between antennas 
+  * ex. Teleporter: Makes call at ant 1, next call is 100 miles away at ant 2 
+  * How did the user get there? Plane/train/horse/elephant/Superman?   
+  * Something to watch out for: Did the user lose service?   
 
-
+##### Open-ended Task   
+* Does definition of home location matter for abstract patterns?  
+  * What measures/variables to use to find a
+	statistically significant difference?  
 
 
 
