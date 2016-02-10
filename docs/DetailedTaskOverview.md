@@ -1,4 +1,4 @@
-#### Adam - Abstract Patterns   
+### Adam - Abstract Patterns   
 ##### Motivating Question     
 * How do people move on a small scale (by the second/minute/hour)?    
 
@@ -8,7 +8,7 @@
 * Develop an abstract graph in D3.js using movement patterns
 * Clustering similar users/home locations by 2-mers, 3-mers, 4-mers, ...
 
-#### Bishal - Migration  
+### Bishal - Migration  
 ##### Motivating Question  
 * How do people move on a large scale (daily, weekly, monthly)?
 
@@ -21,7 +21,7 @@
   * What measures/variables to use to find a
 	statistically significant difference?
 
-#### Matt - Time
+### Matt - Time
 ##### Motivating Question  
 * How does time affect how people move?
 
@@ -39,7 +39,7 @@
   * What measures/variables to use to find a
 	statistically significant difference?
 
-#### Michael - Interactive Visualization     
+### Michael - Interactive Visualization     
 ##### Motivating Question   
 * What is the best way to visualize movement?   
 
@@ -47,7 +47,7 @@
 * Interactivity of Senegal with arrondisement boundaries using D3.js   
 * Plotting antennas in Senegal using D3.js
 
-#### Morgan - Location
+### Morgan - Location
 ##### Motivating Question  
 * How does geography affect how people move?
 
