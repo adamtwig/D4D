@@ -4,6 +4,7 @@
 
 ##### Main Tasks   
 * Enumerate a single user's abstract pattern of movements
+* Break AMP into decision tree counts/percents
 * Alter user home location for daily (365 out-values per user)
 * Develop an abstract graph in D3.js using movement patterns
 * Clustering similar users/home locations by 2-mers, 3-mers, 4-mers, ...
@@ -51,6 +52,7 @@
 ##### Main Tasks   
 * Interactivity of Senegal with arrondisement boundaries using D3.js   
 * Plotting antennas in Senegal using D3.js
+* Plotting a decision tree using D3.js
 
 ### Morgan - Location
 ##### Motivating Question  
