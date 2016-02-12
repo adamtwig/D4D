@@ -8,12 +8,12 @@ import numpy as np
 from geopy.distance import vincenty
 
 
-
+'''
 with open(fileName, 'rb') as f:
   reader = csv.reader(f)
   for row in reader:
     print row
-
+'''
 
 # @return list of lists, where each inner list is made up of strings
 def read_file(filePath):
@@ -50,8 +50,8 @@ def calc_vincenty_dist(pointA, pointB):
 #    where each list is [idA, latA, lngA, idB, latB, lngB, dist]
 def calc_output(input):
     output = list()
-    for listA in input[0:4]:
-        for listB in input[0:4]:
+    for listA in input[0:1665]:
+        for listB in input[0:1665]:
             between = list()
             
             idA = int(listA[0])
@@ -78,23 +78,22 @@ def calc_output(input):
     return output
 
 def main():
-    csvFile = "SITE_ARR_LONLAT.CSV"
-    numSites = 1666
-
-    resDir = "res"
-    filePathInput = os.path.join(resDir, csvFile)
-    data = read_file(filePathInput)
+	csvFile = "SITE_ARR_LONLAT.CSV"
+	numSites = 1666
+	resDir = "../../data"
+	filePathInput = os.path.join(resDir, csvFile)
+	data = read_file(filePathInput)
     
-    distBetween = calc_output(data)
+	distBetween = calc_output(data)
     # print distBetween
     # print distBetween[0]
     # print distBetween[0][0]
 
-    outFile = "SITE_DIST_LATLNG.csv"
-    outDir = "out"
-    filePathOutput = os.path.join(outDir, outFile)
-    write_file(filePathOutput, distBetween)
-
+	outFile = "SITE_DIST_LATLNG.csv"
+	#outDir = "out"
+	outDir = "../../output"
+	filePathOutput = os.path.join(outDir, outFile)
+	write_file(filePathOutput, distBetween)
 
 
 if __name__ == '__main__':
