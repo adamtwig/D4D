@@ -50,8 +50,8 @@ def calc_vincenty_dist(pointA, pointB):
 #    where each list is [idA, latA, lngA, idB, latB, lngB, dist]
 def calc_output(input):
     output = list()
-    for listA in input[0:1665]:
-        for listB in input[0:1665]:
+    for listA in input[0:1666]:
+        for listB in input[0:1666]:
             between = list()
             
             idA = int(listA[0])
