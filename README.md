@@ -1,7 +1,7 @@
 # Grand Valley State University (GVSU)
 # Computational Science Research
 ## Adam Terwilliger
-### Credits: Michael Baldwin, Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
+### Credits: Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
 
 #### Summary
 ##### Working with data obtained from the Data 4 Development (D4D) challenge, we look to better understand how people move and how diseases spread using over a billion observations. We are employing data mining and pattern recognition techniques using Python.   
@@ -49,14 +49,16 @@ src
 * Distances between each antenna
 * Enumeration of specific patterns of movement by antenna for first five users
 * Home Locations by user for each month (SET3) all five home defs
-* Output well-formatted specific 1-mers to 10-mers for first 80, 800, 8000 users
+* Output well-formatted specific 1-mers to 10-mers for first 80, 800, 8000 users  
+* Voronoi Diagram for Antennas
+* Aggregate specific n-mers by user
+* Average/total distance travelled by a user in two weeks
 
 ##### Current Work
-* Adam -- Abstract Movement Patterns
+* Adam -- Abstract Movement Patterns (AMP)
 * Bishal -- Migration
 * Matt -- Time
-* Michael -- Interactive Visualization
-* Morgan -- Movement Statistics/Geography
+* Morgan -- Geography
 
 ###### See [DetailedTaskFlow.md](https://github.com/adamtwig/D4D/blob/master/docs/DetailedTaskOverview.md) for specific task breakdowns
 
