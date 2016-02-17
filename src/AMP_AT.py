@@ -17,7 +17,7 @@ Credits: Michael Baldwin, Bishal Chamlin, Jon Leidig,
 import numpy as np
 import sys
 import datetime as dt
-from home_calc_functions_AT import *
+from uHome_calc_functions_AT import *
 
 def main():
     
@@ -38,8 +38,8 @@ def main():
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
-	patAmount = len(data_array_2d)
-	#patAmount = 1000
+	#patAmount = len(data_array_2d)
+	patAmount = 1000
 
 	#windowSize = 10
 
@@ -51,14 +51,38 @@ def main():
 			else:
 				endWindow = 
 '''
+
+	ampList = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')
+
+	ampDict = {}
+
 	for i in range(patAmount):
 		windowSize = 10
 		if i > (patAmount - windowSize):
 			windowSize = patAmount - i
 		for j in range(1,windowSize+1):
-			print str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
-	
+			userPatDict = {}
+			userPatString = ""
+			ampID = 0
+			for k in data_array_2d[i:i+j,2]:
+				if k in userPatDict:
+					userPatString+=userPatDict[k]
+				else:
+					userPatDict[k] = ampList[ampID]
+					userPatString+=userPatDict[k]
+					ampID+=1
 
+			print str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
+			print str(data_array_2d[i,0])+","+userPatString
+			'''
+			ampKey = str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
+			if ampKey in ampDict:
+				ampDict[ampKey] += 1
+			else:
+				ampDict[ampKey] = 1
+
+	print ampDict
+	'''
 	#patterns = list()
 	#userWindow = 1
 	#windowStart = 1
