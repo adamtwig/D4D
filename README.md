@@ -1,7 +1,9 @@
 # Grand Valley State University (GVSU)
 # Computational Science Research
 ## Adam Terwilliger
-### Credits: Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
+### Credits: Michael Baldwin, Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
+
+### Contact Adam at terwilla@mail.gvsu.edu with any questions, comments, or concerns
 
 #### Summary
 ##### Working with data obtained from the Data 4 Development (D4D) challenge, we look to better understand how people move and how diseases spread using over a billion observations. We are employing data mining and pattern recognition techniques using Python.   
