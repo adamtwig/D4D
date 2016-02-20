@@ -77,6 +77,7 @@ def main():
 	count = 0 
 	total_dist = 0
 	prev_ant = -1
+	diff_calls_count = 0
 
 	# user -> total_dist, count, avg_dist
 	user_to_dist = {}
@@ -90,26 +91,35 @@ def main():
 			if int(prev_ant) > 0:
 				if int(prev_ant) > int(data_list[index][2]):
 					total_dist += float(ant_distance[int(data_list[index][2]),int(prev_ant)])
+					diff_calls_count += 1
 				elif int(prev_ant) == int(data_list[index][2]):
 					total_dist += 0
 				else:
+					diff_calls_count += 1
 					total_dist += float(ant_distance[int(prev_ant), int(data_list[index][2])])
 			prev_ant = data_list[index][2]
 		else:
-			if count >0:
-				user_to_dist[user_id] = (total_dist, int(count)+1, float(total_dist)/int(count))
+			if diff_calls_count > 1:
+				user_to_dist[user_id] = (total_dist, int(count)+1, float(total_dist)/int(count), int(diff_calls_count), float(total_dist)/int(diff_calls_count-1))
+			elif count > 0:
+				user_to_dist[user_id] = (total_dist, int(count)+1, float(total_dist)/int(count), int(diff_calls_count), float(total_dist)/int(count), int(diff_calls_count)-1)
+			else:
+				user_to_dist[user_id] = (total_dist, 1, total_dist, diff_calls_count, total_dist, diff_calls_count-1)
+
 			user_id = data_list[index][0]
 			count = 0
 			total_dist = 0
 			prev_ant = data_list[index][2]		
+			diff_calls_count = 0
 		
 												
 
 
-	outfile = open('/opt2/D4D/senegal/code/D4D_working/output/user_dist_travelled/out_userdisttravelled_SET2_' + fileout + '.CSV', 'w')
-	outfile.write('user_id,total_dist,total_calls,avg_dist\n')
+	outfile = open('/opt2/D4D/senegal/code/D4D_working/output/user_dist_travelled/out_SET2_' + fileout + '.CSV', 'w')
+#	outfile = open('/opt2/D4D/senegal/code/D4D_working/src/MO_working/1_usertodist/SAMPLE_' + fileout + '.CSV', 'w')
+	outfile.write('user_id,total_dist,total_calls,avg_dist,diff_calls,distance_no_repeats\n')
 	for key in user_to_dist:
-		outfile.write(str(key) + ',' + str(user_to_dist[key][0]) + ',' + str(user_to_dist[key][1]) + ',' + str(user_to_dist[key][2]) + "\n")
+		outfile.write(str(key) + ',' + str(user_to_dist[key][0]) + ',' + str(user_to_dist[key][1]) + ',' + str(user_to_dist[key][2]) + ',' + str(user_to_dist[key][3]) + ',' + str(user_to_dist[key][4]) + "\n")
 
 if __name__ == "__main__":
 	main()
