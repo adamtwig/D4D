@@ -38,8 +38,8 @@ def main():
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
-	patAmount = len(data_array_2d)
-	#patAmount = 1000
+	#patAmount = len(data_array_2d)
+	patAmount = 1000
 
 	#windowSize = 10
 
