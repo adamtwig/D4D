@@ -97,7 +97,7 @@ def main():
 				else:
 					diff_calls_count += 1
 					total_dist += float(ant_distance[int(prev_ant), int(data_list[index][2])])
-			prev_ant = data_list[index][2]
+				prev_ant = data_list[index][2]
 		else:
 			if diff_calls_count > 1:
 				user_to_dist[user_id] = (total_dist, int(count)+1, float(total_dist)/int(count), int(diff_calls_count), float(total_dist)/int(diff_calls_count-1))

@@ -44,10 +44,12 @@ def main():
 
 		if ('sample' in sys.argv[1]):
 			input_file = sample_dir + filename
-			out_dir = out_dir + 'sample_out_data/'
+			out_user_dir = out_user_dir + 'sample_out_data/'
+			out_ant_dir = out_ant_dir + 'sample_out_data/'
 		else:    
 			input_file = raw_dir + filename
-			out_dir = out_dir + 'out_data/'
+			out_user_dir = out_user_dir + 'out_data/'
+			out_ant_dir = out_ant_dir + 'out_data/'
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
@@ -104,11 +106,11 @@ def main():
 			weekends[user_index, antenna_index]+=1
     
     # aggregrate frequencies by antenna and write output to csv
-	ant_output_write(out_ant_dir+'out_nofilter', filename, agg_ant_freq(nofilter))
-	ant_output_write(out_ant_dir+'out_daytime_', filename, agg_ant_freq(daytime))
-	ant_output_write(out_ant_dir+'out_nighttime_', filename, agg_ant_freq(nighttime))
-	ant_output_write(out_ant_dir+'out_weekdays_', filename, agg_ant_freq(weekdays))
-	ant_output_write(out_ant_dir+'out_weekends_', filename, agg_ant_freq(weekends))
+#	ant_output_write(out_ant_dir+'out_nofilter', filename, agg_ant_freq(nofilter))
+#	ant_output_write(out_ant_dir+'out_daytime_', filename, agg_ant_freq(daytime))
+#	ant_output_write(out_ant_dir+'out_nighttime_', filename, agg_ant_freq(nighttime))
+#	ant_output_write(out_ant_dir+'out_weekdays_', filename, agg_ant_freq(weekdays))
+#	ant_output_write(out_ant_dir+'out_weekends_', filename, agg_ant_freq(weekends))
 
 	# get user home location and write output to csv
 	user_output_write(out_user_dir+'out_user_nofilter_', filename, 
@@ -119,7 +121,7 @@ def main():
 					agg_user_freq(nighttime), userIDdict2)
 	user_output_write(out_user_dir+'out_user_weekdays_', filename, 
 					agg_user_freq(weekdays), userIDdict2)
-	user_output_write(out_user_dir+'out_user_weekends_', filename,
+	user_output_write(out_user_dir+'out_weekends_', filename,
 					agg_user_freq(weekends), userIDdict2)
 
 if __name__ == "__main__":

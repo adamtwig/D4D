@@ -38,8 +38,8 @@ def main():
         
 	data_array_2d = read_csv_to_matrix(input_file)
 
-	#patAmount = len(data_array_2d)
-	patAmount = 1000
+	patAmount = len(data_array_2d)
+	#patAmount = 1000
 
 	#windowSize = 10
 
@@ -72,7 +72,7 @@ def main():
 					userPatString+=userPatDict[k]
 					ampID+=1
 
-			print str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
+			#print str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
 			print str(data_array_2d[i,0])+","+userPatString
 			'''
 			ampKey = str(data_array_2d[i,0])+","+str(data_array_2d[i:i+j,2])
