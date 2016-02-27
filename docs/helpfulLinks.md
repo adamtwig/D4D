@@ -1,6 +1,7 @@
 ##### References
 
 # Git  
+- [Setting up SSH keys](https://help.github.com/articles/generating-an-ssh-key/)
 - [Git commit troubles](http://stackoverflow.com/questions/21168846/cant-remove-file-from-git-commit)
 
 # Python
