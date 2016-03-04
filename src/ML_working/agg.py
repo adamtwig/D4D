@@ -17,7 +17,6 @@ import sys
 import datetime as dt
 
 #aggrigations print users out of order,
-#TODO: maybe keep multiple dictionarys
 #one for each user, would just add one if statement in the loop
 #and then print them in order
 

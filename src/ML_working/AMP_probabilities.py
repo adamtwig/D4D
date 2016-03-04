@@ -45,43 +45,56 @@ import sys
 import datetime as dt
 
 def main():
-        path_fileIn = "smallAMPaggs.txt"
+        path_fileIn = "tstAMPagg.txt"
         path_fileOut = "oSmallAMP_probabilities.txt"
 
 	#variables to make tokenized line use more clear
 	UID = 0
 	AMP = 1
 	OCCUR = 2
+	NUM_CALLS = 1
 
         #universal dictionary between users to hold the index of each pattern
 	patternIndices  = {} 
+	#list of userlists
+	userLists = [[]]
+	curUsrList = []
 	currIndex = 2 #so this can be used directly with userList 0:uid, 1:Total
 	#array of lists, each list is one users results
-	#for 6 usr, op file was 3000
-	userLists = [[0]*100]*10#10 is num users 50 is elements in array?
-	
+	cUID = -1
 	print "running\n"
         with open(path_fileIn, 'r') as infile:
  		for curLine in infile:
 			curLineTknized = curLine.split(',')
+			if(cUID != curLineTknized[UID]): #we have a new user
+				userLists.append(curUsrList) #append old list
+				print 'new user'
+				curUsrList = []
+				curUsrList.append(curLineTknized[UID])
+				curUsrList.append(0)
+				for l in range(currIndex-2):
+					curUsrList.append("0")
+					curUsrList[0] = curLineTknized[UID]
+			cUID = curLineTknized[UID]
+			cAMP = curLineTknized[AMP].strip("\n")		
+			cOCCUR = curLineTknized[OCCUR].strip("\n")
+					
 			#increment the total number of calls the usr made
-			userLists[int(curLineTknized[UID])][1] +=1
+			curUsrList[NUM_CALLS] += int(cOCCUR)
 			#if the current AMP is not already in the patternIndex
-			if not curLineTknized[AMP] in patternIndices:
-				patternIndices[curLineTknized[AMP]] = currIndex
+			if not cAMP in patternIndices:
+				patternIndices[cAMP] = currIndex
 				currIndex += 1
-			
-			#if the pattern is in the users list... it shouldnt be
-			if curLineTknized[AMP] in userLists[int(curLineTknized[UID])]:
-				print "error, user has duplicate patterns in their aggragation file, exiting"
-				return 0
-			else: #the pattern is not yet in the users lists
-				userLists[int(curLineTknized[UID])][patternIndices.get(curLineTknized[AMP])] = curLineTknized[OCCUR].strip("\n")
-			with open(path_fileOut, "w") as outfile:
-				for i in range(len(userLists)): 
-					for item in userLists:
-						outfile.write("%s\n" % str(item))
-					outfile.write("\n")
+				curUsrList.append(cOCCUR)
+		        else: #the pattern is in the patternIndex
+				curUsrList[patternIndices.get(cAMP)] = cOCCUR
+		userLists.append(curUsrList)
+		with open(path_fileOut, "w") as outfile:
+			outfile.write( str(patternIndices))
+			outfile.write('\n')
+
+			for i in userLists: 
+				outfile.write( str(i).strip('[]') + '\n')			
 	return 0;
 
 if __name__ == "__main__":

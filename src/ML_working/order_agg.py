@@ -10,16 +10,15 @@ Details: aggrigating results for 1 user.
 
 Credits: Michael Baldwin, Bishal Chamlin, Jon Leidig,
          Morgan Oneka, Greg Wolffe
+
+TODO: think of a way to make the 'mer' output in a better order
+
 '''
 
 import numpy as np
 import sys
 import datetime as dt
 
-#aggrigations print users out of order,
-#TODO: maybe keep multiple dictionarys
-#one for each user, would just add one if statement in the loop
-#and then print them in order
 
 def main():
         #dictionary to hold each unique mer and the number of occurences
