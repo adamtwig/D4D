@@ -23,17 +23,6 @@ $userID,$totalCalls,numOccurencesForAMP1,numOccurencesForAMP2, ...
 -The AMPs will be in no specific order
 
 Things to fix:
-list initialization
-if the UIDs, are not abstracted, there will be issues
-	maybe use of a dictionary instead of a list could help here?
-
-	only init the uid and total calls to zero,
-		then append everything else can we do this 
-		even though the agg results are out of order???
-
-might be easier to directly take the unaggrigated file as input?
-
-writing to the output file takes too long
 
 
 Credits: Michael Baldwin, Bishal Chamlin, Jon Leidig,
@@ -68,7 +57,6 @@ def main():
 			curLineTknized = curLine.split(',')
 			if(cUID != curLineTknized[UID]): #we have a new user
 				userLists.append(curUsrList) #append old list
-				print 'new user'
 				curUsrList = []
 				curUsrList.append(curLineTknized[UID])
 				curUsrList.append(0)
@@ -89,12 +77,24 @@ def main():
 		        else: #the pattern is in the patternIndex
 				curUsrList[patternIndices.get(cAMP)] = cOCCUR
 		userLists.append(curUsrList)
+		orderIndices = sorted(patternIndices.items(), key=lambda x: x[1])
+		print orderIndices
+		print str(userLists)
 		with open(path_fileOut, "w") as outfile:
-			outfile.write( str(patternIndices))
+			outfile.write("userID, total Calls, ")
+			for pattern in orderIndices:
+				outfile.write(str(pattern[0])+', ')
 			outfile.write('\n')
 
-			for i in userLists: 
-				outfile.write( str(i).strip('[]') + '\n')			
+			for ul in userLists:
+				if ul:
+					for i in range(len(orderIndices)+2):#+2 because two of the cols are uid and totalCalls
+ 						if i < len(ul):
+							outfile.write(str(ul[i])+ ', ')
+						else:
+							outfile.write('0, ')  
+				#outfile.write( str(i).strip('[]') + '\n')			
+				outfile.write("\n")
 	return 0;
 
 if __name__ == "__main__":
