@@ -1,5 +1,5 @@
 # Grand Valley State University (GVSU)
-# Computational Science Research
+# Computational Epidemiology Research
 ## Adam Terwilliger
 ### Credits: Michael Baldwin, Bishal Chamling, Jonathan Leidig, Matt Lukas, Morgan Oneka, Greg Wolffe
 
