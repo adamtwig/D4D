@@ -45,7 +45,7 @@ def create_date(h, m, s):
 # aggregate 2d numpy array on x axis
 # for each user return the index of site made max calls
 def agg_user_freq(array_2d):
-	max_site_indices = np.argmax(array_2d, axis=2)
+	max_site_indices = np.argmax(array_2d, axis=1)
 	return max_site_indices
 
 # aggregate 2d numpy array on x axis
