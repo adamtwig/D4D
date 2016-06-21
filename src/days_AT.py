@@ -152,7 +152,10 @@ def main():
 
 	import csv
 
-	outputLoc = "../output/dailyMigrationTest_AT.csv"
+	#outputLoc = "../output/dailyMigrationTest_AT.csv"
+	
+	outputLoc = "../output/dailyMigration_"+filename
+
 
 	outputFile = csv.writer(open(outputLoc, 'w'))
 	outputFile.writerow(['Arr1', 'Arr2', 'Day', 'NumMigratedArr1toArr2onDay','TotalMigratedFromArr1onDay','Percent'])
