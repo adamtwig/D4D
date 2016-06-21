@@ -138,26 +138,34 @@ def main():
 			#print key, day, userIDdict2[key], user_daysCopy[key,day], user_months[userIDdict2[key]]
 
 	# output matrix (extra padding for 0 indexing)
-	arrDays = np.zeros([123+1,123+1,30+1])
-	
+	arrDays = np.zeros([123+1,31+1])
+	#arrDays = np.zeros([123+1,123+1,30+1])
+		
 	# find migrations by comparing currDay and nextDay to see diff
 	for key in userIDdict2:
-		for day in range(1, 31):
+		for day in range(1, 32):
 			currDayArr = user_daysCopy[key, day]
-			nextDayArr = user_daysCopy[key, day+1]
+			#nextDayArr = user_daysCopy[key, day+1]
 			#print key, day, day+1, currDayArr, nextDayArr
-			arrDays[currDayArr, nextDayArr, day] += 1
+			#arrDays[currDayArr, nextDayArr, day] += 1
+			arrDays[currDayArr, day]+=1		
 
 	arrDaysCopy = arrDays.astype(int)
 
 	import csv
-
-	#outputLoc = "../output/dailyMigrationTest_AT.csv"
 	
-	outputLoc = "../output/dailyMigration_"+filename
-
-
+	outputLoc = "../output/dailyMigrationPop_"+filename
 	outputFile = csv.writer(open(outputLoc, 'w'))
+	
+	for arr in range(1, 124):
+		outList = []
+		#outList = [arr]
+		for day in range(1, 32):
+			currVal = arrDaysCopy[arr, day]
+			outList.append(currVal)
+		outputFile.writerow(outList)
+
+	'''
 	outputFile.writerow(['Arr1', 'Arr2', 'Day', 'NumMigratedArr1toArr2onDay','TotalMigratedFromArr1onDay','Percent'])
 	# output migrations
 	for arr1 in range(1, 124):
@@ -171,7 +179,7 @@ def main():
 					percent = float(currVal) / float(total)
 				#print arr1, arr2, day, currVal, total, float(currVal) / float(total) 
 				outputFile.writerow([arr1, arr2, day, currVal, total, percent])
-
+	'''
 	# ideas for output include all, floats, and only non-self migration
 
 if __name__ == "__main__":
