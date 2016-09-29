@@ -48,7 +48,7 @@ def main():
     		days.append(date.day)
     		days.sort()
 	'''
-	for y in range(2):
+	for y in range(1):
     		y=y+1
     		days = []
     		for line in data_array_2d:

@@ -1,0 +1,25 @@
+#!/bin/bash
+#{ time ./home_calc.py SET2_P01.CSV r ; } 2> ant_runtime.txt
+#{ time ./home_calc.py SET2_P02.CSV r ; } 2>> ant_runtime.txt
+#{ time ./home_calc.py SET2_P03.CSV r ; } 2>> ant_runtime.txt
+#{ time ./home_calc.py SET2_P04.CSV r ; } 2>> ant_runtime.txt
+#{ time ./home_calc.py SET2_P05.CSV r ; } 2>> ant_runtime.txt
+#{ time ./home_calc.py SET2_P06.CSV r ; } 2>> ant_runtime.txt
+#{ time ./home_calc.py SET2_P07.CSV r ; } 2>> ant_runtime.txt
+#{ time ./home_calc.py SET2_P08.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P09.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P10.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P11.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P12.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P13.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P14.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P15.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P16.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P17.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P18.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P19.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P20.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P21.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P22.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P23.CSV r ; } 2>> ant_runtime.txt
+{ time ./home_calc.py SET2_P24.CSV r ; } 2>> ant_runtime.txt

@@ -1,0 +1,14 @@
+#!/bin/bash
+#./days_AT.py sample3_SET3_M01.csv 
+#./days_AT.py SET3_M01.CSV 
+./days_AT.py SET3_M02.CSV 
+./days_AT.py SET3_M03.CSV 
+./days_AT.py SET3_M04.CSV 
+./days_AT.py SET3_M05.CSV 
+./days_AT.py SET3_M06.CSV 
+./days_AT.py SET3_M07.CSV 
+./days_AT.py SET3_M08.CSV 
+./days_AT.py SET3_M09.CSV 
+./days_AT.py SET3_M10.CSV 
+./days_AT.py SET3_M11.CSV 
+./days_AT.py SET3_M12.CSV 

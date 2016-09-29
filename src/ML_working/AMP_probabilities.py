@@ -34,8 +34,8 @@ import sys
 import datetime as dt
 
 def main():
-        path_fileIn = "tstAMPagg.txt"
-        path_fileOut = "oSmallAMP_probabilities.txt"
+        path_fileIn = "agg_sample3_user10.txt"
+        path_fileOut = "prob_sample3_user10.txt"
 
 	#variables to make tokenized line use more clear
 	UID = 0
@@ -78,8 +78,6 @@ def main():
 				curUsrList[patternIndices.get(cAMP)] = cOCCUR
 		userLists.append(curUsrList)
 		orderIndices = sorted(patternIndices.items(), key=lambda x: x[1])
-		print orderIndices
-		print str(userLists)
 		with open(path_fileOut, "w") as outfile:
 			outfile.write("userID, total Calls, ")
 			for pattern in orderIndices:

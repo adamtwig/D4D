@@ -1,0 +1,14 @@
+#!/bin/bash
+./metadata_AT.py sample3_SET3_M01.csv >> out_metadata.txt
+./metadata_AT.py SET3_M01.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M02.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M03.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M04.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M05.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M06.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M07.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M08.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M09.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M10.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M11.CSV >> out_metadata.txt
+./metadata_AT.py SET3_M12.CSV >> out_metadata.txt

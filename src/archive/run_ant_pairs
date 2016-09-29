@@ -1,0 +1,8 @@
+#!/bin/bash
+./ant_pairs_AT.py SET2_P01.CSV 0.333 > SET2_P02_output.txt
+./ant_pairs_AT.py SET2_P01.CSV 0.25 >> SET2_P02_output.txt
+./ant_pairs_AT.py SET2_P01.CSV 0.1 >> SET2_P02_output.txt
+./ant_pairs_AT.py SET2_P01.CSV 0.05 >> SET2_P02_output.txt
+./ant_pairs_AT.py SET2_P01.CSV 0.025 >> SET2_P02_output.txt
+./ant_pairs_AT.py SET2_P01.CSV 0.01 >> SET2_P02_output.txt
+./ant_pairs_AT.py SET2_P01.CSV 0.001 >> SET2_P02_output.txt

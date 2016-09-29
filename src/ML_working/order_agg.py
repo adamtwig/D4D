@@ -25,8 +25,9 @@ def main():
 	results = {} 
 	UID = 0
 	currentUsr = "-1"
-        path_fileOut = "AMPaggregations.txt"
-        path_fileIn = "userAMP_sample6.txt"
+        path_fileOut = "agg_sample3_user10.txt"
+        #path_fileIn = "opt2/D4D/senegal/code/D4D_working/output/userAMP_sample6.txt"
+	path_fileIn = '../../output/sample3_user10.txt'
 	with open(path_fileOut, "w") as outfile:
         	with open(path_fileIn, 'r') as infile:
  			for lineToCheck in infile:

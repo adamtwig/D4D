@@ -43,6 +43,10 @@ src
 	-- uHome_calc_AT.py - generates five definitions of home location output aggregated by antennas and users  
 	-- uHome_calc_functions_AT.py - helper functions to generate home locations    
 
+gitignore 
+
+	-- find . -size +5M | cat > .gitignore
+
 ##### Previous Work
 * Home Locations by antenna (SET2) all 24 datasets for all five home defs
 * Home Locations by arrondisemont (SET3) all 12 datasets all five home defs

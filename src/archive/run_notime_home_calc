@@ -1,0 +1,17 @@
+#!/bin/bash
+./home_calc.py SET2_P09.CSV r &
+./home_calc.py SET2_P10.CSV r &
+./home_calc.py SET2_P11.CSV r &
+./home_calc.py SET2_P12.CSV r &
+./home_calc.py SET2_P13.CSV r &
+./home_calc.py SET2_P14.CSV r &
+./home_calc.py SET2_P15.CSV r &
+./home_calc.py SET2_P16.CSV r &
+./home_calc.py SET2_P17.CSV r &
+./home_calc.py SET2_P18.CSV r &
+./home_calc.py SET2_P19.CSV r &
+./home_calc.py SET2_P20.CSV r &
+./home_calc.py SET2_P21.CSV r &
+./home_calc.py SET2_P22.CSV r &
+./home_calc.py SET2_P23.CSV r &
+./home_calc.py SET2_P24.CSV r &
