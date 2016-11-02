@@ -79,7 +79,9 @@ def generate_season(filename):
         antennafilename = 'SITE_ARR_LONLAT.CSV'
         userfilename = filename
         inputpath = '../data/'
-
+    elif (filename_list[0] == 'SET2'):
+        userfilename = 'SET2/raw/' + filename
+    
     load_antennas(inputpath+antennafilename)
 
     outputdir  = '../output/'
@@ -109,6 +111,49 @@ def generate_season(filename):
     new_antennas_file_path=outputdir+'/heatmap/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
     write_to_csv(new_antennas_file_path,file_headers,antennas_array)
 
+def generate_season_raw(filename):
+    print "SEASON ******** ",filename
+    antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
+    userfilename = 'SET2/raw/SET2_P01.CSV'
+    inputpath = '/opt/D4D/senegal/data/'
+
+    filename_list = filename.split('_')
+    if (filename_list[0] == 'sample'):
+        antennafilename = 'SITE_ARR_LONLAT.CSV'
+        userfilename = filename
+        inputpath = '../data/'
+    elif (filename_list[0] == 'SET2'):
+        userfilename = 'SET2/raw/' + filename
+
+    load_antennas(inputpath+antennafilename)
+
+    outputdir  = '../output/'
+    outputfile = '../output/'+userfilename.split('/')[-1].split('.')[0]
+    pickle_file_path = outputfile+'/'+userfilename.split('/')[-1].split('.')[0]+'.pkl'
+    load_pickle(pickle_file_path)
+
+    print "Starting process for "+userfilename.split('/')[-1].split('.')[0]
+
+    antennas_array = np.zeros((antennas.shape[0],antennas.shape[0]))
+
+    print "Getting all the data from D4Dusers list"
+    for user_id in sorted(users):
+        print "processing user ", user_id
+        prev_antenna = -1
+        for key in sorted(users[user_id].antennas_visited_by_date):
+            #print ','.join([str(x) for x in users[user_id].antennas_visited_by_date[key]])
+            for antenna in users[user_id].antennas_visited_by_date[key]:
+                current_antenna = int(antenna)
+                if prev_antenna != -1 and current_antenna != prev_antenna:
+                    antennas_array[prev_antenna,current_antenna] = antennas_array[prev_antenna,current_antenna] + 1
+                prev_antenna = current_antenna
+
+    #antennas_array = normalize_array(antennas_array)
+
+    file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
+    new_antennas_file_path=outputdir+'/heatmap/raw/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
+    write_to_csv(new_antennas_file_path,file_headers,antennas_array)
+
 def generate_weekends(filename):
     print "WEEKDAY v. WEEKENDS ******** ",filename
     antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
@@ -120,6 +165,8 @@ def generate_weekends(filename):
         antennafilename = 'SITE_ARR_LONLAT.CSV'
         userfilename = filename
         inputpath = '../data/'
+    elif (filename_list[0] == 'SET2'):
+        userfilename = 'SET2/raw/' + filename
 
     load_antennas(inputpath+antennafilename)
 
@@ -170,6 +217,8 @@ def generate_days(filename, days_list):
         antennafilename = 'SITE_ARR_LONLAT.CSV'
         userfilename = filename
         inputpath = '../data/'
+    elif (filename_list[0] == 'SET2'):
+        userfilename = 'SET2/raw/' + filename
 
     load_antennas(inputpath+antennafilename)
 
@@ -210,20 +259,23 @@ def generate_days(filename, days_list):
     write_to_csv(new_antennas_others_file_path,file_headers,antennas_others_array)
 
 def main(argv):
+    required_raw   = False
     required_season   = False
     required_weekends = False
     required_days     = False
     filename = ''
     days_list = []
     try:
-        opts, args = getopt.getopt(argv,"hswd:f:",["help","season","weekends","days=","file="])
+        opts, args = getopt.getopt(argv,"hrswd:f:",["help","raw","season","weekends","days=","file="])
     except getopt.GetoptError:
-        print 'Syntax error: \n Usage: generatemarkov.py [[-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
+        print 'Syntax error: \n Usage: generatemarkov.py [[ -r|--raw] | [-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h","--help"):
-            print 'generatemarkov.py [[-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
+            print 'generatemarkov.py [[-r|--raw] | [-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
             sys.exit()
+	elif opt in ("-r", "--raw"):
+            required_raw = True
         elif opt in ("-s", "--season"):
             required_season = True
         elif opt in ("-w", "--weekends"):
@@ -236,16 +288,18 @@ def main(argv):
             filename = arg
 
     if filename == '':
-        print 'Syntax error: Filename can\'t be empty\n Usage: generatemarkov.py [[-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
+        print 'Syntax error: Filename can\'t be empty\n Usage: generatemarkov.py [[-r|--raw] | [-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
         print ' example filename: sample_SET2_P01.csv'
         sys.exit(2)
 
-    if not required_season and not required_weekends and not required_days:
-        print 'Syntax error: Please use at least of the flags: season, weekends or days\n Usage: generatemarkov.py [[-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
+    if not required_raw and not required_season and not required_weekends and not required_days:
+        print 'Syntax error: Please use at least of the flags: season, weekends or days\n Usage: generatemarkov.py [[-r|--raw] | [-s|--season] | [-w|--weekends] | [-d|--days=]  <comma sep list_dates>] -f <file_name>'
         print ' example: generatemarkov.py -s -f  sample_SET2_P01.csv'
         sys.exit(2)
 
     print(__doc__)
+    if required_raw:
+        generate_season_raw(filename)
     if required_season:
         generate_season(filename)
     if required_weekends:
