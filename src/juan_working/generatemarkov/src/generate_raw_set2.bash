@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=/opt/D4D/senegal/data/SET2/raw/*.CSV
+FILES=/opt2/D4D/senegal/data/SET2/raw/*.CSV
 for f in $FILES
 do
   	echo "Processing $f file..."

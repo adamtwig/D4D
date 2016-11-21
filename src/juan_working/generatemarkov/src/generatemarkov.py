@@ -72,7 +72,7 @@ def generate_season(filename):
     print "SEASON ******** ",filename
     antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
     userfilename = 'SET2/raw/SET2_P01.CSV'
-    inputpath = '/opt/D4D/senegal/data/'
+    inputpath = '/opt2/D4D/senegal/data/'
 
     filename_list = filename.split('_')
     if (filename_list[0] == 'sample'):
@@ -101,21 +101,25 @@ def generate_season(filename):
             #print ','.join([str(x) for x in users[user_id].antennas_visited_by_date[key]])
             for antenna in users[user_id].antennas_visited_by_date[key]:
                 current_antenna = int(antenna)
-                if prev_antenna != -1 and current_antenna != prev_antenna:
+                if prev_antenna != -1:
                     antennas_array[prev_antenna,current_antenna] = antennas_array[prev_antenna,current_antenna] + 1
                 prev_antenna = current_antenna
 
+    raw_antennas_array = np.copy(antennas_array)
     antennas_array = normalize_array(antennas_array)
 
     file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
-    new_antennas_file_path=outputdir+'/heatmap/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
+    
+    new_raw_antennas_file_path=outputdir+'/heatmap/raw/seasons/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
+    new_antennas_file_path=outputdir+'/heatmap/seasons/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
+    write_to_csv(new_raw_antennas_file_path,file_headers,raw_antennas_array)
     write_to_csv(new_antennas_file_path,file_headers,antennas_array)
 
 def generate_season_raw(filename):
     print "SEASON ******** ",filename
     antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
     userfilename = 'SET2/raw/SET2_P01.CSV'
-    inputpath = '/opt/D4D/senegal/data/'
+    inputpath = '/opt2/D4D/senegal/data/'
 
     filename_list = filename.split('_')
     if (filename_list[0] == 'sample'):
@@ -144,21 +148,21 @@ def generate_season_raw(filename):
             #print ','.join([str(x) for x in users[user_id].antennas_visited_by_date[key]])
             for antenna in users[user_id].antennas_visited_by_date[key]:
                 current_antenna = int(antenna)
-                if prev_antenna != -1 and current_antenna != prev_antenna:
+                if prev_antenna != -1:
                     antennas_array[prev_antenna,current_antenna] = antennas_array[prev_antenna,current_antenna] + 1
                 prev_antenna = current_antenna
 
     #antennas_array = normalize_array(antennas_array)
 
     file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
-    new_antennas_file_path=outputdir+'/heatmap/raw/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
+    new_antennas_file_path=outputdir+'/heatmap/seasons/raw/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
     write_to_csv(new_antennas_file_path,file_headers,antennas_array)
 
 def generate_weekends(filename):
     print "WEEKDAY v. WEEKENDS ******** ",filename
     antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
     userfilename = 'SET2/raw/SET2_P01.CSV'
-    inputpath = '/opt/D4D/senegal/data/'
+    inputpath = '/opt2/D4D/senegal/data/'
 
     filename_list = filename.split('_')
     if (filename_list[0] == 'sample'):
@@ -189,19 +193,29 @@ def generate_weekends(filename):
             date = get_key_date(key)
             for antenna in users[user_id].antennas_visited_by_date[key]:
                 current_antenna = int(antenna)
-                if prev_antenna != -1 and current_antenna != prev_antenna:
+                if prev_antenna != -1:
                     if date.weekday() <= 4:
                         antennas_weekdays_array[prev_antenna,current_antenna] = antennas_weekdays_array[prev_antenna,current_antenna] + 1
                     else:
                         antennas_weekends_array[prev_antenna,current_antenna] = antennas_weekends_array[prev_antenna,current_antenna] + 1
                 prev_antenna = current_antenna
 
+    raw_antennas_weekdays_array = np.copy(antennas_weekdays_array)
+    raw_antennas_weekends_array = np.copy(antennas_weekends_array)
+
     antennas_weekdays_array = normalize_array(antennas_weekdays_array)
     antennas_weekends_array = normalize_array(antennas_weekends_array)    
 
     file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
-    new_antennas_weekdays_file_path=outputdir+'/heatmap/'+userfilename.split('/')[-1].split('.')[0]+'-weekdays.csv'
-    new_antennas_weekends_file_path=outputdir+'/heatmap/'+userfilename.split('/')[-1].split('.')[0]+'-weekends.csv'
+
+    new_raw_antennas_weekdays_file_path=outputdir+'/heatmap/raw/weekdays/'+userfilename.split('/')[-1].split('.')[0]+'-weekdays.csv'
+    new_raw_antennas_weekends_file_path=outputdir+'/heatmap/raw/weekends/'+userfilename.split('/')[-1].split('.')[0]+'-weekends.csv'
+
+    new_antennas_weekdays_file_path=outputdir+'/heatmap/weekdays/'+userfilename.split('/')[-1].split('.')[0]+'-weekdays.csv'
+    new_antennas_weekends_file_path=outputdir+'/heatmap/weekends/'+userfilename.split('/')[-1].split('.')[0]+'-weekends.csv'
+
+    write_to_csv(new_raw_antennas_weekdays_file_path,file_headers,raw_antennas_weekdays_array)
+    write_to_csv(new_raw_antennas_weekends_file_path,file_headers,raw_antennas_weekends_array)
     write_to_csv(new_antennas_weekdays_file_path,file_headers,antennas_weekdays_array)
     write_to_csv(new_antennas_weekends_file_path,file_headers,antennas_weekends_array)
 
@@ -210,7 +224,7 @@ def generate_days(filename, days_list):
     print "DAYS ********", filename, days_list
     antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
     userfilename = 'SET2/raw/SET2_P01.CSV'
-    inputpath = '/opt/D4D/senegal/data/'
+    inputpath = '/opt2/D4D/senegal/data/'
 
     filename_list = filename.split('_')
     if (filename_list[0] == 'sample'):
@@ -239,7 +253,7 @@ def generate_days(filename, days_list):
         for key in sorted(users[user_id].antennas_visited_by_date):
             for antenna in users[user_id].antennas_visited_by_date[key]:
                 current_antenna = int(antenna)
-                if prev_antenna != -1 and current_antenna != prev_antenna:
+                if prev_antenna != -1:
                     if key in days_list:
                         antennas_days_array[prev_antenna,current_antenna] = antennas_days_array[prev_antenna,current_antenna] + 1
                         #print "antenna_in_days[%d,%d] count up"
@@ -247,14 +261,24 @@ def generate_days(filename, days_list):
                         antennas_others_array[prev_antenna,current_antenna] = antennas_others_array[prev_antenna,current_antenna] + 1
                         #print "antenna_others[%d,%d] count up"
                 prev_antenna = current_antenna
+
+    raw_antennas_days_array = np.copy(antennas_days_array)
+    raw_antennas_others_array = np.copy(antennas_others_array)
+
     antennas_days_array = normalize_array(antennas_days_array)
     antennas_others_array = normalize_array(antennas_others_array)
 
     file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
     days_list_name = '_'.join([str(x) for x in days_list])
 
-    new_antennas_days_file_path=outputdir+'/heatmap/'+userfilename.split('/')[-1].split('.')[0]+'_'+days_list_name+'_days.csv'
-    new_antennas_others_file_path=outputdir+'/heatmap/'+userfilename.split('/')[-1].split('.')[0]+'_other_days.csv'
+    new_raw_antennas_days_file_path=outputdir+'/heatmap/raw/days/'+userfilename.split('/')[-1].split('.')[0]+'_'+days_list_name+'_days.csv'
+    new_raw_antennas_others_file_path=outputdir+'/heatmap/raw/days/'+userfilename.split('/')[-1].split('.')[0]+'_other_days.csv'
+
+    new_antennas_days_file_path=outputdir+'/heatmap/days/'+userfilename.split('/')[-1].split('.')[0]+'_'+days_list_name+'_days.csv'
+    new_antennas_others_file_path=outputdir+'/heatmap/days/'+userfilename.split('/')[-1].split('.')[0]+'_other_days.csv'
+
+    write_to_csv(new_raw_antennas_days_file_path,file_headers,raw_antennas_days_array)
+    write_to_csv(new_raw_antennas_others_file_path,file_headers,raw_antennas_others_array)
     write_to_csv(new_antennas_days_file_path,file_headers,antennas_days_array)
     write_to_csv(new_antennas_others_file_path,file_headers,antennas_others_array)
 

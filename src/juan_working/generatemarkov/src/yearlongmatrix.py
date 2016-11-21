@@ -69,9 +69,9 @@ def normalize_array(array):
         i+=1
     return array
 
-def generate_year(filename):
-    print "YEAR ******** Path to files: ",filename
-    files_list = glob.glob(filename+'/*.csv')
+def generate_year(filespath, output):
+    print "YEAR ******** Path to files: ",filespath
+    files_list = glob.glob(filespath+'/*.csv')
     year_numpy_list = []
     for csv_file in files_list:
         tmpArray = read_csv_to_matrix(csv_file)
@@ -85,77 +85,57 @@ def generate_year(filename):
         season_array = season_array.astype(float)
         year_array = year_array + season_array 
     
-    antennafilename = '/opt/D4D/senegal/data/ContextData/SITE_ARR_LONLAT.CSV'
+    antennafilename = '/opt2/D4D/senegal/data/ContextData/SITE_ARR_LONLAT.CSV'
     outputdir  = '../output/'
     load_antennas(antennafilename)
     file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
+    
+    raw_year_array = np.copy(year_array)
     year_array = normalize_array(year_array)
-    year_file_path=outputdir+'/heatmap/year/2013.csv'
-    write_to_csv(year_file_path,file_headers,year_array)
+    
+    output_folder = '.'
 
-    '''
-    antennafilename = 'ContextData/SITE_ARR_LONLAT.CSV'
-    userfilename = 'SET2/raw/SET2_P01.CSV'
-    inputpath = '/opt/D4D/senegal/data/'
-
-    filename_list = filename.split('_')
-    if (filename_list[0] == 'sample'):
-        antennafilename = 'SITE_ARR_LONLAT.CSV'
-        userfilename = filename
-        inputpath = '../data/'
-    elif (filename_list[0] == 'SET2'):
-        userfilename = 'SET2/raw/' + filename
-
-    load_antennas(inputpath+antennafilename)
-
-    outputdir  = '../output/'
-    outputfile = '../output/'+userfilename.split('/')[-1].split('.')[0]
-    pickle_file_path = outputfile+'/'+userfilename.split('/')[-1].split('.')[0]+'.pkl'
-    load_pickle(pickle_file_path)
-
-    print "Starting process for "+userfilename.split('/')[-1].split('.')[0]
-
-    antennas_array = np.zeros((antennas.shape[0],antennas.shape[0]))
-
-    print "Getting all the data from D4Dusers list"
-    for user_id in sorted(users):
-        print "processing user ", user_id
-        prev_antenna = -1
-        for key in sorted(users[user_id].antennas_visited_by_date):
-            #print ','.join([str(x) for x in users[user_id].antennas_visited_by_date[key]])
-            for antenna in users[user_id].antennas_visited_by_date[key]:
-                current_antenna = int(antenna)
-                if prev_antenna != -1 and current_antenna != prev_antenna:
-                    antennas_array[prev_antenna,current_antenna] = antennas_array[prev_antenna,current_antenna] + 1
-                prev_antenna = current_antenna
-
-    #antennas_array = normalize_array(antennas_array)
-
-    file_headers = ','.join([str(x) for x in antennas[:,0]]) + '\n'
-    new_antennas_file_path=outputdir+'/heatmap/raw/'+userfilename.split('/')[-1].split('.')[0]+'-season.csv'
-    write_to_csv(new_antennas_file_path,file_headers,antennas_array)
-    '''
+    #check in case the output name is just the name of the file and not the complete filepath
+    output_filepath_list = output.split('/')
+    output_file_name = output_filepath_list[-1]
+    if len(output_filepath_list) > 1:
+        del output_filepath_list[-1]
+        output_folder = '/'.join([str(x) for x in output_filepath_list])
+    
+    
+    raw_output_filepath = output_folder + '/raw_' + output_file_name
+    output_filepath = output_folder + '/' + output_file_name
+    
+    write_to_csv(raw_output_filepath,file_headers,raw_year_array)
+    write_to_csv(output_filepath,file_headers,year_array)
 
 def main(argv):
-    filename = ''
+    filespath = ''
+    output = ''
     try:
-        opts, args = getopt.getopt(argv,"h:f:",["help","filepath="])
+        opts, args = getopt.getopt(argv,"h:f:o:",["help","filespath=","output="])
     except getopt.GetoptError:
-        print 'Syntax error: \n Usage: yearlongmatrix.py  -f <file_path>'
+        print 'Syntax error: \n Usage: yearlongmatrix.py  -f <files_path> -o <output_name>'
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h","--help"):
-            print 'yearlongmatrix.py  -f <file_path>'
+            print 'yearlongmatrix.py  -f <file_path> -o <output_name>'
             sys.exit()
-        elif opt in ("-f", "--file"):
-            filename = arg
+        elif opt in ("-f", "--filespath"):
+            filespath = arg
+        elif opt in ("-o", "--output"):
+            output = arg
 
-    if filename == '':
-        print 'Syntax error: Filename can\'t be empty\n Usage: yearlongmatrix.py  -f <file_path>'
-        print ' example filepath: ../output/heatmap/raw'
+    if filespath == '':
+        print 'Syntax error: Filespath can\'t be empty\n Usage: yearlongmatrix.py  -f <file_path> -o <output_name>'
+        print ' example filespath: ../output/heatmap/seasons/raw'
         sys.exit(2)
+    if output  == '':
+        print 'Syntax error: output can\'t be empty\n Usage: yearlongmatrix.py  -f <file_path> -o <output_name>'
+        print ' example output: ../output/heatmap/seasons/raw/2013.csv'
+        sys.exit(2)    
 
-    generate_year(filename)
+    generate_year(filespath, output)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
