@@ -1,0 +1,13 @@
+#!/bin/bash
+./trips_AT.py SET2_P01.CSV 
+./trips_AT.py SET2_P02.CSV 
+./trips_AT.py SET2_P03.CSV 
+./trips_AT.py SET2_P04.CSV 
+./trips_AT.py SET2_P05.CSV 
+./trips_AT.py SET2_P06.CSV 
+./trips_AT.py SET2_P07.CSV 
+./trips_AT.py SET2_P08.CSV 
+./trips_AT.py SET2_P09.CSV 
+./trips_AT.py SET2_P10.CSV 
+./trips_AT.py SET2_P11.CSV 
+./trips_AT.py SET2_P12.CSV 

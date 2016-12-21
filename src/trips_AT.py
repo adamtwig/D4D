@@ -53,11 +53,9 @@ def main():
 	user_ids = count_active_ids(data_array_2d, 0)
 	site_ids = count_active_ids(data_array_2d, 2)
     
-	#for x in range(len(data_array_2d)):
-        currentID = 1
         dayTripDict = {}
-
-        for x in range(1, 1000):
+        
+        for x in range(len(data_array_2d)):
 	    
             user_prev = int(data_array_2d[x-1][0])
             time_prev = get_date(data_array_2d[x-1][1])
