@@ -23,6 +23,10 @@ from uHome_calc_functions_AT import *
 np.set_printoptions(suppress=True)
 #np.set_printoptions(precision=3)
 
+# ignore divide by zero warnings
+np.seterr(divide='ignore', invalid='ignore')
+
+
 def main():
     
     if ( len(sys.argv) != 2 ):
@@ -89,24 +93,45 @@ def main():
     markovChain = np.nan_to_num(markovChainCounts / row_sums[:, np.newaxis])
 
     # markov chain 2d array debug
-    for row in range(len(markovChain)):
-        for col in range(len(markovChain[row])):
-            if markovChain[row,col] != 0:
-                print row, col, markovChain[row,col]
+    #for row in range(len(markovChain)):
+    #    for col in range(len(markovChain[row])):
+    #        if markovChain[row,col] != 0:
+    #            print row, col, markovChain[row,col]
 
+    # generate list of valid starting locations
+    # invalid locations contain nodes with all edge prob = 0
+    validStartingLocations = []
+    for possibleStartingLocation in range(1666):
+        if sum(markovChain[possibleStartingLocation]) != 0:
+            validStartingLocations.append(possibleStartingLocation)
+    #print validStartingLocations
 
-    #for row in range(len(markovChainCounts)):
-    #    for col in range(len(markovChainCounts[row])):
-    #        if markovChainCounts[row,col] != 0:
-    #            print row,col, markovChainCounts[row,col], sum(markovChainCounts[row]), markovChainCounts[row,col] / sum(markovChainCounts[row])
+    startLoc = np.random.choice(validStartingLocations, 3)
+    numTrips = 5
+    userListOfTrips = []
+    for loc in startLoc:
+        print "Starting location:", loc
+        currLoc = loc
+        currListOfTrips = [loc]
+        for trip in range(numTrips-1):
+            nextLocProb = markovChain[currLoc]
+            for edge in range(len(nextLocProb)):
+                if nextLocProb[edge] != 0:
+                   print currLoc, edge, nextLocProb[edge]
+            nextLoc = np.random.choice(range(len(nextLocProb)), 1, p=nextLocProb)
+            currLoc = nextLoc[0]
+            currListOfTrips.append(currLoc)
+        userListOfTrips.append(currListOfTrips)
+   
+    print userListOfTrips    
 
     # time dist array debug
-    print timeDist
+    #print timeDist
     #plt.plot(timeDist)
     #plt.show()
 
     # user length array debug
-    print userLengths[:maxNum_trips+1]
+    #print userLengths[:maxNum_trips+1]
 
 if __name__ == "__main__":
     main()
