@@ -106,14 +106,22 @@ def main():
             validStartingLocations.append(possibleStartingLocation)
     #print validStartingLocations
 
-    startLoc = np.random.choice(validStartingLocations, 3)
-    numTrips = 5
+    startLoc = np.random.choice(validStartingLocations, 5)
+    #numTrips = 5
+    
+    userLengthDist = userLengths[:maxNum_trips+1] / sum(userLengths[:maxNum_trips+1])
+
+    numTrips = np.random.choice(range(len(userLengthDist)), 5, p=userLengthDist)
+    print numTrips   
+ 
+    index = 0
+    
     userListOfTrips = []
     for loc in startLoc:
         print "Starting location:", loc
         currLoc = loc
         currListOfTrips = [loc]
-        for trip in range(numTrips-1):
+        for trip in range(numTrips[index]-1):
             nextLocProb = markovChain[currLoc]
             for edge in range(len(nextLocProb)):
                 if nextLocProb[edge] != 0:
@@ -122,16 +130,18 @@ def main():
             currLoc = nextLoc[0]
             currListOfTrips.append(currLoc)
         userListOfTrips.append(currListOfTrips)
-   
+        index += 1            
+
     print userListOfTrips    
 
     # time dist array debug
-    #print timeDist
+    #print timeDist / sum(timeDist)
+    
     #plt.plot(timeDist)
     #plt.show()
 
     # user length array debug
-    #print userLengths[:maxNum_trips+1]
+
 
 if __name__ == "__main__":
     main()
